@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/29 14:56:49 by chansjeo          #+#    #+#             */
+/*   Updated: 2024/04/30 20:01:46 by chansjeo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../miniRT.h"
+
+int	create_rgb(int r, int g, int b)
+{
+	return (r << 16 | g << 8 | b);
+}
+
+int	create_unit_rgb(double r, double g, double b)
+{
+  int ur;
+  int ug;
+  int ub;
+
+  ur = (int)(255.999 * r);
+  ug = (int)(255.999 * g);
+  ub = (int)(255.999 * b);
+  return (ur << 16 | ug << 8 | ub);
+}
+
+int	get_t(int trgb)
+{
+  return (trgb & (0xFF << 24));
+}
+
+int get_r(int trgb)
+{
+  return (trgb & (0xFF << 16));
+}
+
+int get_g(int trgb)
+{
+  return (trgb & (0xFF << 8));
+}
+
+int get_b(int trgb)
+{
+  return (trgb & 0xFF);
+}
