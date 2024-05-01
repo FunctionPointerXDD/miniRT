@@ -6,14 +6,14 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:56:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/01 16:53:21 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:15:11 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <mlx.h>
 # include <stdlib.h>
 # include <math.h>
