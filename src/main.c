@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:54:26 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/01 18:14:44 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 14:02:47 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,23 @@ static void	init_window(t_vars *vars)
 int	main(int argc, char **argv)
 {
 	t_vars		vars;
-	t_factor	*e;
+	t_factor	*f;
 
 	if (argc != 2)
 		ft_error_msg("usage: ./miniRT [filename].rt\n", 1);
-	e = get_factor(argv[1]);
+	f = get_factor(argv[1]);
 	printf("\t\t\tA : [%.2f]\t[%.2f],[%.2f],[%.2f]\n \
 			C : [%.2f],[%.2f],[%.2f]\t[%.2f],[%.2f],[%.2f]\t[%.2f]\n \
 			L : [%.2f],[%.2f],[%.2f]\t[%.2f]\t[%.2f],[%.2f],[%.2f]\n \
 			pl: [%.2f],[%.2f],[%.2f]\t[%.2f],[%.2f],[%.2f]\t[%.2f],[%.2f],[%.2f]\n \
 			sp: [%.2f],[%.2f],[%.2f]\t[%.2f]\t[%.2f],[%.2f],[%.2f]\n \
 			cy: [%.2f],[%.2f],[%.2f]\t[%.2f],[%.2f],[%.2f]\t[%.2f]\t[%.2f]\t[%.2f],[%.2f],[%.2f]\n",
-		   e->amb->range, e->amb->color.e[0], e->amb->color.e[1], e->amb->color.e[2],
-		   e->cam->view_pos.e[0], e->cam->view_pos.e[1], e->cam->view_pos.e[2], e->cam->unit_vec.e[0], e->cam->unit_vec.e[1], e->cam->unit_vec.e[2], e->cam->fov,
-		   e->light->light_pos.e[0], e->light->light_pos.e[1], e->light->light_pos.e[2], e->light->range, e->light->color.e[0], e->light->color.e[1], e->light->color.e[2],
-		   e->pl->plane_pos.e[0], e->pl->plane_pos.e[1], e->pl->plane_pos.e[2], e->pl->unit_vec.e[0], e->pl->unit_vec.e[1], e->pl->unit_vec.e[2], e->pl->color.e[0], e->pl->color.e[1], e->pl->color.e[2],
-		   e->sp->center_pos.e[0], e->sp->center_pos.e[1], e->sp->center_pos.e[2], e->sp->diameter, e->sp->color.e[0], e->sp->color.e[1], e->sp->color.e[2],
-		   e->cy->center_pos.e[0], e->cy->center_pos.e[1], e->cy->center_pos.e[2], e->cy->unit_vec.e[0], e->cy->unit_vec.e[1], e->cy->unit_vec.e[2], e->cy->diameter, e->cy->height, e->cy->color.e[0], e->cy->color.e[1], e->cy->color.e[2]);
+		   f->amb->range, f->amb->color.e[0], f->amb->color.e[1], f->amb->color.e[2],
+		   f->cam->view_pos.e[0], f->cam->view_pos.e[1], f->cam->view_pos.e[2], f->cam->unit_vec.e[0], f->cam->unit_vec.e[1], f->cam->unit_vec.e[2], f->cam->fov,
+		   f->light->light_pos.e[0], f->light->light_pos.e[1], f->light->light_pos.e[2], f->light->range, f->light->color.e[0], f->light->color.e[1], f->light->color.e[2],
+		   f->pl->plane_pos.e[0], f->pl->plane_pos.e[1], f->pl->plane_pos.e[2], f->pl->unit_vec.e[0], f->pl->unit_vec.e[1], f->pl->unit_vec.e[2], f->pl->color.e[0], f->pl->color.e[1], f->pl->color.e[2],
+		   f->sp->center_pos.e[0], f->sp->center_pos.e[1], f->sp->center_pos.e[2], f->sp->diameter, f->sp->color.e[0], f->sp->color.e[1], f->sp->color.e[2],
+		   f->cy->center_pos.e[0], f->cy->center_pos.e[1], f->cy->center_pos.e[2], f->cy->unit_vec.e[0], f->cy->unit_vec.e[1], f->cy->unit_vec.e[2], f->cy->diameter, f->cy->height, f->cy->color.e[0], f->cy->color.e[1], f->cy->color.e[2]);
 	/* -------------ray tracing START!------------ */
 	init_window(&vars);
 	mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);

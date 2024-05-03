@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:56:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/01 18:15:11 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:15:29 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,22 @@ typedef struct s_vec3
     double e[3];
 } t_vec3;
 
-t_vec3 make_vec3(double e0, double e1, double e2);
-t_vec3 vec3_add(const t_vec3 *u, const t_vec3 *v);
-t_vec3 vec3_cross(const t_vec3 *u, const t_vec3 *v);
-t_vec3 vec3_divide(const t_vec3 *v, double t);
-double vec3_dot(const t_vec3 *u, const t_vec3 *v);
-double vec3_length(const t_vec3 *v);
-double vec3_length_squared(const t_vec3 *v);
-t_vec3 vec3_mul(const t_vec3 *u, const t_vec3 *v);
-t_vec3 vec3_negate(const t_vec3 *v);
-void vec3_output(const t_vec3 *v);
-t_vec3 vec3_scale(double t, const t_vec3 *v);
-t_vec3 vec3_sub(const t_vec3 *u, const t_vec3 *v);
-t_vec3 vec3_unit_vector(const t_vec3 *v);
-double vec3_x(const t_vec3 *v);
-double vec3_y(const t_vec3 *v);
-double vec3_z(const t_vec3 *v);
+t_vec3	make_vec3(double e0, double e1, double e2);
+t_vec3	vec3_add(const t_vec3 *u, const t_vec3 *v);
+t_vec3	vec3_sub(const t_vec3 *u, const t_vec3 *v);
+t_vec3	vec3_mul(const t_vec3 *u, const t_vec3 *v);
+t_vec3	vec3_divide(const t_vec3 *v, double t);
+t_vec3	vec3_scale(double t, const t_vec3 *v);
+t_vec3	vec3_negate(const t_vec3 *v);
+double	vec3_dot(const t_vec3 *u, const t_vec3 *v);
+t_vec3	vec3_cross(const t_vec3 *u, const t_vec3 *v);
+double	vec3_length(const t_vec3 *v);
+double	vec3_length_squared(const t_vec3 *v);
+void	vec3_output(const t_vec3 *v);
+t_vec3	vec3_unit_vector(const t_vec3 *v);
+double	vec3_x(const t_vec3 *v);
+double	vec3_y(const t_vec3 *v);
+double	vec3_z(const t_vec3 *v);
 
 /* element.h */
 typedef enum e_element
@@ -130,6 +130,7 @@ typedef struct s_vars
 	int		line_length;
 	int		endian;
 	double	scale;
+	int		color;
 }	t_vars;
 
 int	create_rgb(int r, int g, int b);
@@ -141,15 +142,16 @@ int get_b(int trgb);
 void	*ft_calloc_adv(size_t count, size_t size);
 char	**ft_split_adv(char *str);
 
-void	ft_error_msg(char *str, int exit_status);
-double	ft_atof(char *str);
+/* parsing.c */
+void		ft_error_msg(char *str, int exit_status);
+double		ft_atof(char *str);
 t_factor	*get_factor(const char *path);
 t_factor	*input_info(t_factor *factor, int fd, \
 						char *line, char **args);
-
+int		is_space(const char *str);
 char	*ft_strsep(char **s, const char *ct);
+int		check_filename(const char *path);
 
-/* input.c */
 void	get_three_pos(t_vec3 *v, char *arg);
 void	get_amb(t_ambient *amb, char **args);
 void	get_cam(t_camera *cam, char **args);
@@ -158,6 +160,5 @@ void	get_pl(t_plane *pl, char **args);
 void	get_sp(t_sphere *sp, char **args);
 void	get_cy(t_cylinder *cy, char **args);
 
-double	ft_atof(char *str);
 
 #endif

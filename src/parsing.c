@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 19:23:53 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/01 16:54:06 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:34:34 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ t_factor	*input_info(t_factor *factor, int fd, char *line, char **args)
 			get_sp(factor->sp, args);
 		else if (ft_strncmp(args[0], "cy", 3) == 0)
 			get_cy(factor->cy, args);
+		else if (!is_space(args[0]))
+		{
+			ft_putstr_fd(args[0], 2);
+			ft_error_msg("-> invalud element!\n", 1);
+		}
 		free_in_gnl(line, args);
 	}
 	close(fd);
@@ -58,6 +63,7 @@ t_factor	*get_factor(const char *path)
 
 	line = 0;
 	args = 0;
+	check_filename(path);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		ft_error_msg("open failed\n", 1);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                            :+:      :+:    :+:   */
+/*   parse_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:23:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/01 14:53:01 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:36:58 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	get_three_pos(t_vec3 *v, char *arg)
 	while (1)
 	{
 		buf = ft_strsep(&arg, ",");
-		if (!buf || *buf == '\0')
+		if (!buf)
 			break ;
 		v->e[cnt] = ft_atof(buf);
 		cnt++;
 	}
 	if (cnt != 3)
-		ft_error_msg("There must be only three points.\n", 1);
+		ft_error_msg("There must be only three points in vec3.\n", 1);
 }
 
 void	get_amb(t_ambient *amb, char **args)

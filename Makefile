@@ -2,7 +2,7 @@ NAME:= miniRT
 INCS:= miniRT.h
 BNS_INCS:= miniRT_bonus.h
 
-SRCS = src/main.c src/vec_utils.c src/parsing.c src/parse_utils.c src/mem_utils.c src/color.c src/input.c src/atof.c
+SRCS = src/main.c src/vec_utils.c src/parsing.c src/parse_utils.c src/mem_utils.c src/color.c src/parse_utils_2.c src/atof.c
 BNS_SRCS = src_bonus/main_bonus.c
 
 OBJS = $(SRCS:.c=.o)

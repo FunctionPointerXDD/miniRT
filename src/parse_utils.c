@@ -6,12 +6,25 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:11:35 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/04/30 21:04:52 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:07:55 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../miniRT.h"
 
+int	is_space(const char *str)
+{
+	if (*str == ' ' || *str == '\n' || *str == '\t' || \
+		*str == '\f' || *str == '\r' || *str == '\v')
+		return (1);
+	return (0);
+}
+
+/**
+ * strpbrk - Find the first occurrence of a set of characters
+ * @cs: The string to be searched
+ * @ct: The characters to search for
+ */
 static char	*ft_strpbrk(const char *cs, const char *ct)
 {
 	const char	*sc;
@@ -26,6 +39,13 @@ static char	*ft_strpbrk(const char *cs, const char *ct)
 	return (NULL);
 }
 
+/**
+ * strsep - Split a string into tokens
+ * @s: The string to be searched
+ * @ct: The characters to search for
+ * strsep() updates @s to point after the token, 
+ * --> ready for the next call.
+ */
 char	*ft_strsep(char **s, const char *ct)
 {
 	char	*sbegin;
@@ -41,30 +61,12 @@ char	*ft_strsep(char **s, const char *ct)
 	return (sbegin);
 }
 
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-int	main(void)
+int	check_filename(const char *path)
 {
-	char	*buf;
-	char	*str;
-	int		cnt;
+	char	*idx;
 
-	cnt = 0;
-	str = malloc(sizeof(char) * 100);
-	memset(str, 0, 100);
-	memcpy(str, "hello,world,asdf,", 50);
-	while (1)
-	{
-		buf = ft_strsep(&str, ",");
-		if (!buf)
-			break ;
-		printf("%s\n", buf);
-		cnt++;
-	}
-	if (cnt != 3)
-		printf("3 point only!\n");
-	return 0;
+	idx = ft_strrchr(path, '.');
+	if (ft_strncmp(idx, ".rt", 4) != 0)
+		ft_error_msg("[filename].rt file does not exist.\n", 1);
+	return (0);
 }
-*/

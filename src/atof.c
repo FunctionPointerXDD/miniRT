@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:52:09 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/01 16:52:58 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:31:01 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,29 @@ static double	cal_atof(char *str, int neg, int digit, int dot)
 	return (ret * neg);
 }
 
-static int	is_space(const char *str)
-{
-	if (*str == ' ' || *str == '\n' || *str == '\t' || \
-		*str == '\f' || *str == '\r' || *str == '\v')
-		return (1);
-	return (0);
-}
 
 static void	valid_check(char *str)
 {
-	int	cnt_d;
+	int	cnt;
 
-	cnt_d = 0;
+	cnt = 0;
 	if (*str && ft_strlen(str) > 15)
 		ft_error_msg("too long value\n", 1);
+	if (*str == '.')
+		ft_error_msg("invalid value\n", 1);
 	while (*str)
 	{
 		if (!ft_isdigit(*str) && !is_space(str))
 		{
-			if (*str == '.' && cnt_d == 0)
-				cnt_d++;
+			if (*str == '.' && cnt == 0)
+				cnt++;
 			else
 				ft_error_msg("invalid value\n", 1);
 		}
 		str++;
 	}
+	if (*--str == '.')
+		ft_error_msg("invalid value\n", 1);
 }
 
 double	ft_atof(char *str)
