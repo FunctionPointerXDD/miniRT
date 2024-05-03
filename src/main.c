@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:54:26 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 20:17:48 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 21:25:12 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,11 @@ int	main(int argc, char **argv)
 	mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_hook(vars.win, 17, 0, exit_hook, 0);
+	///////////////////
+	//               //
+	//  ray_tracing  //
+	//               //
+	///////////////////
 	mlx_loop(vars.mlx);
 	/* -------------ray tracing END!------------ */
 	free_factor(f);
