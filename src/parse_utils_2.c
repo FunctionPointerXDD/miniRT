@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:23:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 18:41:15 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 21:03:47 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	get_pl(t_plane *pl, char **args)
 {
 	get_three_pos(&pl->plane_pos, args[1], 0);
 	get_three_pos(&pl->unit_vec, args[2], UNIT_VEC);
+	if (!pl->unit_vec.e[0] && !pl->unit_vec.e[1] && !pl->unit_vec.e[2])
+		ft_error_msg("A plane can not be calculate\n", 1);
 	get_three_pos(&pl->color, args[3], COLOR);
 }
 
