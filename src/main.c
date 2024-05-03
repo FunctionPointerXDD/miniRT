@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:54:26 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 14:02:47 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:17:48 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,17 @@ static void	init_window(t_vars *vars)
 	vars->scale = 1.0;
 }
 
+void	free_factor(t_factor *f)
+{
+	free(f->amb);
+	free(f->cam);
+	free(f->light);
+	free(f->cy);
+	free(f->pl);
+	free(f->sp);
+	free(f);
+}
+
 int	main(int argc, char **argv)
 {
 	t_vars		vars;
@@ -59,12 +70,14 @@ int	main(int argc, char **argv)
 			L : [%.2f],[%.2f],[%.2f]\t[%.2f]\t[%.2f],[%.2f],[%.2f]\n \
 			pl: [%.2f],[%.2f],[%.2f]\t[%.2f],[%.2f],[%.2f]\t[%.2f],[%.2f],[%.2f]\n \
 			sp: [%.2f],[%.2f],[%.2f]\t[%.2f]\t[%.2f],[%.2f],[%.2f]\n \
+			sp: [%.2f],[%.2f],[%.2f]\t[%.2f]\t[%.2f],[%.2f],[%.2f]\n \
 			cy: [%.2f],[%.2f],[%.2f]\t[%.2f],[%.2f],[%.2f]\t[%.2f]\t[%.2f]\t[%.2f],[%.2f],[%.2f]\n",
 		   f->amb->range, f->amb->color.e[0], f->amb->color.e[1], f->amb->color.e[2],
 		   f->cam->view_pos.e[0], f->cam->view_pos.e[1], f->cam->view_pos.e[2], f->cam->unit_vec.e[0], f->cam->unit_vec.e[1], f->cam->unit_vec.e[2], f->cam->fov,
 		   f->light->light_pos.e[0], f->light->light_pos.e[1], f->light->light_pos.e[2], f->light->range, f->light->color.e[0], f->light->color.e[1], f->light->color.e[2],
 		   f->pl->plane_pos.e[0], f->pl->plane_pos.e[1], f->pl->plane_pos.e[2], f->pl->unit_vec.e[0], f->pl->unit_vec.e[1], f->pl->unit_vec.e[2], f->pl->color.e[0], f->pl->color.e[1], f->pl->color.e[2],
 		   f->sp->center_pos.e[0], f->sp->center_pos.e[1], f->sp->center_pos.e[2], f->sp->diameter, f->sp->color.e[0], f->sp->color.e[1], f->sp->color.e[2],
+		   f->sp[1].center_pos.e[0], f->sp[1].center_pos.e[1], f->sp[1].center_pos.e[2], f->sp[1].diameter, f->sp[1].color.e[0], f->sp[1].color.e[1], f->sp[1].color.e[2],
 		   f->cy->center_pos.e[0], f->cy->center_pos.e[1], f->cy->center_pos.e[2], f->cy->unit_vec.e[0], f->cy->unit_vec.e[1], f->cy->unit_vec.e[2], f->cy->diameter, f->cy->height, f->cy->color.e[0], f->cy->color.e[1], f->cy->color.e[2]);
 	/* -------------ray tracing START!------------ */
 	init_window(&vars);
@@ -73,5 +86,6 @@ int	main(int argc, char **argv)
 	mlx_hook(vars.win, 17, 0, exit_hook, 0);
 	mlx_loop(vars.mlx);
 	/* -------------ray tracing END!------------ */
+	free_factor(f);
 	return (0);
 }

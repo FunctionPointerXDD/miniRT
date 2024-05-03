@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:59:53 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/01 14:49:13 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:28:39 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ char	**ft_split_adv(char *str)
 	if (!res)
 		ft_error_msg("ft_split failed!\n", 255);
 	return (res);
+}
+
+int	open_read_only(const char *path)
+{
+	int	fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		ft_error_msg("open failed\n", 1);
+	return (fd);
 }

@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:56:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 16:15:29 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:28:54 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef enum e_element
 	LIGHT,
 	PLANE,
 	SPHERE,
-	CYLINDER	
+	CYLINDER,
 }	t_element;
 
 typedef struct s_ambient
@@ -67,7 +67,7 @@ typedef struct s_camera
 	int		id;
 	t_vec3	view_pos;
 	t_vec3	unit_vec; //3d normalized orientation vector. In range [-1,1]
-	double		fov; //Horizontal field of view in degrees in range [0,180]
+	double	fov; //Horizontal field of view in degrees in range [0,180]
 }	t_camera;
 
 typedef struct s_light
@@ -96,7 +96,7 @@ typedef struct s_plane
 
 typedef struct s_cylinder
 {
-	int	id;
+	int		id;
 	t_vec3	center_pos; // ∗ x,y,z coordinates of the center of the cylinder: 50.0,0.0,20.6
 	t_vec3	unit_vec; // ∗ 3d normalized vector of axis of cylinder. In range [-1,1] for each x,y,z axis: 0.0,0.0,1.0
 	double	diameter; // ∗ the cylinder diameter: 14.2
@@ -106,6 +106,7 @@ typedef struct s_cylinder
 
 typedef struct s_factor 
 {
+	int			tab[6];
 	t_ambient	*amb;	
 	t_camera	*cam;
 	t_light		*light;
@@ -143,6 +144,10 @@ void	*ft_calloc_adv(size_t count, size_t size);
 char	**ft_split_adv(char *str);
 
 /* parsing.c */
+
+# define COLOR 10
+# define UNIT_VEC 11
+
 void		ft_error_msg(char *str, int exit_status);
 double		ft_atof(char *str);
 t_factor	*get_factor(const char *path);
@@ -151,8 +156,9 @@ t_factor	*input_info(t_factor *factor, int fd, \
 int		is_space(const char *str);
 char	*ft_strsep(char **s, const char *ct);
 int		check_filename(const char *path);
+int		open_read_only(const char *path);
 
-void	get_three_pos(t_vec3 *v, char *arg);
+void	get_three_pos(t_vec3 *v, char *arg, int type);
 void	get_amb(t_ambient *amb, char **args);
 void	get_cam(t_camera *cam, char **args);
 void	get_light(t_light *light, char **args);
