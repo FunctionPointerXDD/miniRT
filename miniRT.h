@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:56:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 21:34:59 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:52:35 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # define WIDTH 800
 # define HEIGHT 800
+# define ASPECT_RATIO 16.0 / 9.0
 # define ESC 53
 
 typedef struct s_vars
@@ -43,13 +44,23 @@ typedef struct s_vars
 	int		color;
 }	t_vars;
 
-int	create_rgb(int r, int g, int b);
-int	get_t(int trgb);
-int get_r(int trgb);
-int get_g(int trgb);
-int get_b(int trgb);
+typedef struct s_ray
+{
+	t_vec3	orig;
+	t_vec3	dir;
+}	t_ray;
+
+int		create_rgb(int r, int g, int b);
+int		create_unit_rgb(double r, double g, double b);
+int		get_t(int trgb);
+int		get_r(int trgb);
+int		get_g(int trgb);
+int		get_b(int trgb);
+void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 
 void	*ft_calloc_adv(size_t count, size_t size);
 char	**ft_split_adv(char *str);
+
+t_vec3	ray_at(t_ray *ray);
 
 #endif

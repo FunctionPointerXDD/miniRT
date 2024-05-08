@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:54:26 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 21:25:12 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/08 13:18:52 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		ft_error_msg("usage: ./miniRT [filename].rt\n", 1);
 	f = get_factor(argv[1]);
+	/* ----------- TEST parsing -------------
 	printf("\t\t\tA : [%.2f]\t[%.2f],[%.2f],[%.2f]\n \
 			C : [%.2f],[%.2f],[%.2f]\t[%.2f],[%.2f],[%.2f]\t[%.2f]\n \
 			L : [%.2f],[%.2f],[%.2f]\t[%.2f]\t[%.2f],[%.2f],[%.2f]\n \
@@ -79,18 +80,43 @@ int	main(int argc, char **argv)
 		   f->sp->center_pos.e[0], f->sp->center_pos.e[1], f->sp->center_pos.e[2], f->sp->diameter, f->sp->color.e[0], f->sp->color.e[1], f->sp->color.e[2],
 		   f->sp[1].center_pos.e[0], f->sp[1].center_pos.e[1], f->sp[1].center_pos.e[2], f->sp[1].diameter, f->sp[1].color.e[0], f->sp[1].color.e[1], f->sp[1].color.e[2],
 		   f->cy->center_pos.e[0], f->cy->center_pos.e[1], f->cy->center_pos.e[2], f->cy->unit_vec.e[0], f->cy->unit_vec.e[1], f->cy->unit_vec.e[2], f->cy->diameter, f->cy->height, f->cy->color.e[0], f->cy->color.e[1], f->cy->color.e[2]);
-	/* -------------ray tracing START!------------ */
+	*/
 	init_window(&vars);
-	mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);
-	mlx_key_hook(vars.win, key_hook, &vars);
-	mlx_hook(vars.win, 17, 0, exit_hook, 0);
+	double i = 0, j = 0;
+	/*
+	auto aspect_ratio = 16.0 / 9.0;
+	int image_width = 400;
+
+	// Calculate the image height, and ensure that it's at least 1.
+	int image_height = int(image_width / aspect_ratio);
+	image_height = (image_height < 1) ? 1 : image_height;
+
+	// Viewport widths less than one are ok since they are real valued.
+	auto viewport_height = 2.0;
+	auto viewport_width = viewport_height * (double(image_width) / image_height);
+	*/
+	while (i < HEIGHT)
+	{
+		j = 0;
+		while (j < WIDTH)
+		{
+			int pixel_color = create_unit_rgb((double)(j / (WIDTH - 1)), (double)(i / (HEIGHT - 1)), 0);
+			my_mlx_pixel_put(&vars, j, i, pixel_color);
+			j++;
+		}
+		i++;
+	}
+	/* -------------ray tracing START!------------ */
 	///////////////////
 	//               //
 	//  ray_tracing  //
 	//               //
 	///////////////////
-	mlx_loop(vars.mlx);
 	/* -------------ray tracing END!------------ */
+	mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);
+	mlx_key_hook(vars.win, key_hook, &vars);
+	mlx_hook(vars.win, 17, 0, exit_hook, 0);
+	mlx_loop(vars.mlx);
 	free_factor(f);
 	return (0);
 }

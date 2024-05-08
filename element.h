@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:32:40 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 21:33:36 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/08 13:22:23 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,5 @@ typedef struct s_factor
 	t_sphere	*sp;
 	t_cylinder	*cy;
 }	t_factor;
+
 #endif

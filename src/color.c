@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:56:49 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 12:26:56 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/08 13:25:14 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	create_unit_rgb(double r, double g, double b)
   ub = (int)(255.999 * b);
   return (ur << 16 | ug << 8 | ub);
 }
+
 void  my_mlx_pixel_put(t_vars *data, int x, int y, int color)
 {
   char  *dst;
