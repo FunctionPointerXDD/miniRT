@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 13:58:43 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/08 16:01:19 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:07:57 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 // B : ray direction
 // t : real number
 */
-
 t_vec3	ray_at(t_ray *ray, double t)
 {
 	t_vec3	out;

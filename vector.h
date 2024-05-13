@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:26:11 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 21:28:08 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:12:31 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 typedef struct s_vec3 
 {
-    double e[3];
+    double  e[3];
 } t_vec3;
 
 t_vec3	make_vec3(double e0, double e1, double e2);

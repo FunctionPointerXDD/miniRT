@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   element.h                                          :+:      :+:    :+:   */
+/*   factor.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:32:40 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/08 13:22:23 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/09 18:13:57 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ELEMENT_H
-# define ELEMENT_H
+#ifndef FACTOR_H
+# define FACTOR_H
 
 # include "vector.h"
 
@@ -35,7 +35,7 @@ typedef struct s_ambient
 typedef struct s_camera
 {
 	int		id;
-	t_vec3	view_pos;
+	t_vec3	view_pos; //not vector but coordinates of the cam point
 	t_vec3	unit_vec; //3d normalized orientation vector. In range [-1,1]
 	double	fov; //Horizontal field of view in degrees in range [0,180]
 }	t_camera;

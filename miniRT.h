@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:56:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/08 15:52:35 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:14:47 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINIRT_H
 
 # include "libft/libft.h"
-# include <mlx.h>
+# include "mlx_beta/mlx.h"
 # include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
@@ -22,7 +22,7 @@
 # include <fcntl.h>
 # include "vector.h"
 # include "parsing.h"
-# include "element.h"
+# include "factor.h"
 
 /* image.h */
 
@@ -31,18 +31,26 @@
 # define ASPECT_RATIO 16.0 / 9.0
 # define ESC 53
 
+typedef struct s_img_tool t_img_tool;
 typedef struct s_vars
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	double	scale;
-	int		color;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	t_img_tool	*img_tool;
 }	t_vars;
+
+typedef struct s_img_tool
+{
+	int		img_width;
+	int		img_height;
+	double	viewport_height;
+	double	viewport_width;	
+}	t_img_tool;
 
 typedef struct s_ray
 {
@@ -61,6 +69,6 @@ void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 void	*ft_calloc_adv(size_t count, size_t size);
 char	**ft_split_adv(char *str);
 
-t_vec3	ray_at(t_ray *ray);
+t_vec3	ray_at(t_ray *ray, double t);
 
 #endif

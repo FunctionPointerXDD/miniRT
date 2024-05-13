@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:54:26 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/08 13:18:52 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:10:15 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,18 @@ static int key_hook(int keycode, t_vars *vars)
 
 static void	init_window(t_vars *vars)
 {
+	/*
+	int image_width = 400;
+
+	// Calculate the image height, and ensure that it's at least 1.
+	int image_height = (int)(WIDTH / ASPECT_RATIO);
+	image_height = (image_height < 1) ? 1 : image_height;
+
+	// Viewport widths less than one are ok since they are real valued.
+	double viewport_height = 2.0;
+	double viewport_width = viewport_height * ((double)(image_width) / image_height);
+	*/
+
 	vars->mlx = mlx_init();
 	if (vars->mlx == NULL)
 		exit(1);
@@ -43,7 +55,6 @@ static void	init_window(t_vars *vars)
 			&vars->line_length, &vars->endian);
 	if (vars->addr == NULL)
 		exit(1);
-	vars->scale = 1.0;
 }
 
 void	free_factor(t_factor *f)
@@ -83,18 +94,6 @@ int	main(int argc, char **argv)
 	*/
 	init_window(&vars);
 	double i = 0, j = 0;
-	/*
-	auto aspect_ratio = 16.0 / 9.0;
-	int image_width = 400;
-
-	// Calculate the image height, and ensure that it's at least 1.
-	int image_height = int(image_width / aspect_ratio);
-	image_height = (image_height < 1) ? 1 : image_height;
-
-	// Viewport widths less than one are ok since they are real valued.
-	auto viewport_height = 2.0;
-	auto viewport_width = viewport_height * (double(image_width) / image_height);
-	*/
 	while (i < HEIGHT)
 	{
 		j = 0;

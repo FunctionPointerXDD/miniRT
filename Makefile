@@ -9,9 +9,10 @@ OBJS = $(SRCS:.c=.o)
 BNS_OBJS = $(BNS_SRCS:.c=.o)
 
 CC:=cc
-DEBUG:= -g -fsanitize=address
+##DEBUG:= -g -fsanitize=address
 CFLAGS:= -Wall -Wextra -Werror -O3
-MFLAG:= -lmlx -framework OpenGL -framework AppKit -framework OpenGL
+##MFLAG:= -Lmlx_beta -lmlx -framework Metal -framework Metalkit
+MLX = libmlx.dylib
 LIBFT = libft/libft.a
 RM = rm -rf
 MAKE = make 
@@ -21,20 +22,26 @@ all: $(NAME)
 bonus : BONUS 
 
 $(NAME): $(LIBFT) $(OBJS) $(INCS)
-	$(CC) $(DEBUG) $(CFLAGS) $(OBJS) $(LIBFT) $(MFLAG) -o $@
+	$(CC) $(DEBUG) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -o $@
 	$(RM) BONUS
 
 %.o: %.c
 	$(CC) -g $(CFLAGS) -c $< -o $@
 
 BONUS: $(LIBFT) $(BNS_OBJS) $(BNS_INCS)
-	$(CC) $(CFLAGS) $(BNS_OBJS) $(LIBFT) $(MFLAG) -o $(NAME)
+	$(CC) $(CFLAGS) $(BNS_OBJS) $(LIBFT) $(MLX) -o $(NAME)
 	touch $@
 
 $(LIBFT):
 	$(MAKE) -sC libft all
 
 %.a: lib
+	$(MAKE) $(@F) -C $(@D)
+
+$(MLX):
+	$(MAKE) -sC mlx_beta all
+
+%.a: mlx 
 	$(MAKE) $(@F) -C $(@D)
 
 clean:

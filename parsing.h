@@ -6,14 +6,14 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:30:01 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/03 21:33:58 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:28:38 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-# include "element.h"
+# include "factor.h"
 
 # define COLOR 10
 # define UNIT_VEC 11
