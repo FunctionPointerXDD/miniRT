@@ -6,12 +6,12 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:30:01 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:35:20 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:45:31 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#ifndef PARSING_BONUS_H
+# define PARSING_BONUS_H
 
 # include "factor_bonus.h"
 

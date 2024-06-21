@@ -6,12 +6,12 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:32:40 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:35:35 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:45:02 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FACTOR_H
-# define FACTOR_H
+#ifndef FACTOR_BONUS_H
+# define FACTOR_BONUS_H
 
 # include "vector_bonus.h"
 
