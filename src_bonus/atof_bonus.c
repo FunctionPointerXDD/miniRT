@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atof.c                                             :+:      :+:    :+:   */
+/*   atof_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:52:09 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:24:44 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:27:24 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/miniRT.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 static double	cal_atof(char *str, int neg, int digit, int dot)
 {

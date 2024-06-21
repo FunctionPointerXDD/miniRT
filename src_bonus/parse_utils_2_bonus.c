@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_utils_2.c                                    :+:      :+:    :+:   */
+/*   parse_utils_2_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:23:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:24:37 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:28:36 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/miniRT.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 void	get_three_pos(t_vec3 *v, char *arg, int type) 
 {

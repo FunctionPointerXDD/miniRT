@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.c                                              :+:      :+:    :+:   */
+/*   ray_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 13:58:43 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:24:57 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:30:10 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/vector.h"
-#include "../header/miniRT.h"
+#include "../header_bonus/vector_bonus.h"
+#include "../header_bonus/miniRT_bonus.h"
  
 /*
 // ray --> P(t) = A + t * B

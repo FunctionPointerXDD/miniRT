@@ -1,9 +1,9 @@
 NAME:= miniRT
-INCS:= miniRT.h
-BNS_INCS:= miniRT_bonus.h
+INCS:= header/miniRT.h
+BNS_INCS:= header_bonus/miniRT_bonus.h
 
 SRCS = src/main.c src/vec_utils.c src/parsing.c src/parse_utils.c src/mem_utils.c src/color.c src/parse_utils_2.c src/atof.c src/ray.c
-BNS_SRCS = src_bonus/main_bonus.c
+BNS_SRCS = src_bonus/main_bonus.c src_bonus/vec_utils_bonus.c src_bonus/parsing_bonus.c src_bonus/parse_utils_bonus.c src_bonus/mem_utils_bonus.c src_bonus/color_bonus.c src_bonus/parse_utils_2_bonus.c src_bonus/atof_bonus.c src_bonus/ray_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 BNS_OBJS = $(BNS_SRCS:.c=.o)
@@ -29,7 +29,7 @@ $(NAME): $(LIBFT) $(OBJS) $(INCS)
 	$(CC) -g $(CFLAGS) -c $< -o $@
 
 BONUS: $(LIBFT) $(BNS_OBJS) $(BNS_INCS)
-	$(CC) $(CFLAGS) $(BNS_OBJS) $(LIBFT) $(MLX) -o $(NAME)
+	$(CC) $(DEBUG) $(CFLAGS) $(BNS_OBJS) $(LIBFT) $(MLX) -o $@
 	touch $@
 
 $(LIBFT):

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 19:23:53 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:24:04 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:28:50 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/miniRT.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 static void	free_in_gnl(char *line, char **args)
 {

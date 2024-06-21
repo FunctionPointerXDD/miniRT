@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.h                                           :+:      :+:    :+:   */
+/*   miniRT_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:56:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/05/13 12:14:47 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:34:43 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include "libft/libft.h"
-# include "mlx_beta/mlx.h"
+# include "../libft/libft.h"
+# include "../mlx_beta/mlx.h"
 # include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include "vector.h"
-# include "parsing.h"
-# include "factor.h"
+# include "vector_bonus.h"
+# include "parsing_bonus.h"
+# include "factor_bonus.h"
 
 /* image.h */
 

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_utils.c                                        :+:      :+:    :+:   */
+/*   vec_utils_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 19:58:21 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:23:52 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:29:05 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/miniRT.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 // Constructors
 t_vec3	make_vec3(double e0, double e1, double e2)
