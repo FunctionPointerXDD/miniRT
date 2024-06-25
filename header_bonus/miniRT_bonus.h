@@ -14,7 +14,7 @@
 # define MINIRT_BONUS_H
 
 # include "../libft/libft.h"
-# include "../mlx_beta/mlx.h"
+# include <mlx.h>
 # include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
@@ -52,11 +52,11 @@ typedef struct s_img_tool
 	double	viewport_width;	
 }	t_img_tool;
 
-typedef struct s_ray
+typedef struct s_col_info
 {
-	t_vec3	orig;
-	t_vec3	dir;
-}	t_ray;
+	t_vec3	pos;
+	t_vec3	n_vec;
+}	t_col_info;
 
 int		create_rgb(int r, int g, int b);
 int		create_unit_rgb(double r, double g, double b);
@@ -69,6 +69,6 @@ void	my_mlx_pixel_put(t_vars *data, int x, int y, int color);
 void	*ft_calloc_adv(size_t count, size_t size);
 char	**ft_split_adv(char *str);
 
-t_vec3	ray_at(t_ray *ray, double t);
+t_vec3	ray_at(t_col_info *ray, double t);
 
 #endif

@@ -93,21 +93,9 @@ int	main(int argc, char **argv)
 		   f->sp[1].center_pos.e[0], f->sp[1].center_pos.e[1], f->sp[1].center_pos.e[2], f->sp[1].diameter, f->sp[1].color.e[0], f->sp[1].color.e[1], f->sp[1].color.e[2],
 		   f->cy->center_pos.e[0], f->cy->center_pos.e[1], f->cy->center_pos.e[2], f->cy->unit_vec.e[0], f->cy->unit_vec.e[1], f->cy->unit_vec.e[2], f->cy->diameter, f->cy->height, f->cy->color.e[0], f->cy->color.e[1], f->cy->color.e[2]);
 		   */
-	
 	init_window(&vars);
-	double i = 0, j = 0;
-	while (i < HEIGHT)
-	{
-		j = 0;
-		while (j < WIDTH)
-		{
-			int pixel_color = create_unit_rgb((double)(j / (WIDTH - 1)), (double)(i / (HEIGHT - 1)), 0);
-			my_mlx_pixel_put(&vars, j, i, pixel_color);
-			j++;
-		}
-		i++;
-	}
 	/* -------------ray tracing START!------------ */
+	renderer(&vars, f);
 	///////////////////
 	//               //
 	//  ray_tracing  //

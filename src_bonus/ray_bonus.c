@@ -20,12 +20,12 @@
 // B : ray direction
 // t : real number
 */
-t_vec3	ray_at(t_ray *ray, double t)
+t_vec3	ray_at(t_col_info *ray, double t)
 {
 	t_vec3	out;
 
-	out.e[0] = ray->orig.e[0] + t * ray->dir.e[0]; 
-	out.e[1] = ray->orig.e[1] + t * ray->dir.e[1]; 
-	out.e[2] = ray->orig.e[2] + t * ray->dir.e[2]; 
+	out.e[0] = ray->pos.e[0] + t * ray->n_vec.e[0]; 
+	out.e[1] = ray->pos.e[1] + t * ray->n_vec.e[1]; 
+	out.e[2] = ray->pos.e[2] + t * ray->n_vec.e[2]; 
 	return (out);
 }

@@ -17,16 +17,35 @@ int	create_rgb(int r, int g, int b)
 	return (r << 16 | g << 8 | b);
 }
 
-int	create_unit_rgb(double r, double g, double b)
+int	create_unit_rgb(t_vec3 color)
 {
   int ur;
   int ug;
   int ub;
 
-  ur = (int)(255.999 * r);
-  ug = (int)(255.999 * g);
-  ub = (int)(255.999 * b);
+  ur = (int)(255.999 * color.e[X]);
+  ug = (int)(255.999 * color.e[Y]);
+  ub = (int)(255.999 * color.e[Z]);
   return (ur << 16 | ug << 8 | ub);
+}
+
+t_vec3	clip_color(t_vec3 color)
+{
+	t_vec3	cliped;
+	
+	if (color.e[X] > 1.0f)
+		cliped.e[X] = 1.0f;
+	else
+		cliped.e[X] = color.e[X];
+	if (color.e[Y] > 1.0f)
+		cliped.e[Y] = 1.0f;
+	else
+		cliped.e[Y] = color.e[Y];
+	if (color.e[Z] > 1.0f)
+		cliped.e[Z] = 1.0f;
+	else
+		cliped.e[Z] = color.e[Z];
+	return (cliped);
 }
 
 void  my_mlx_pixel_put(t_vars *data, int x, int y, int color)
@@ -39,6 +58,7 @@ void  my_mlx_pixel_put(t_vars *data, int x, int y, int color)
   *(unsigned int *)dst = color;
 }
 
+/*
 int	get_t(int trgb)
 {
   return (trgb & (0xFF << 24));
@@ -58,3 +78,4 @@ int get_b(int trgb)
 {
   return (trgb & 0xFF);
 }
+*/

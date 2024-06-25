@@ -24,6 +24,7 @@ t_vec3	make_vec3(double e0, double e1, double e2)
 }
 
 // Getters
+/*
 double	vec3_x(const t_vec3 *v)
 {
 	return (v->e[0]);
@@ -38,12 +39,15 @@ double	vec3_z(const t_vec3 *v)
 {
 	return (v->e[2]);
 }
+*/
 
 // Unary operators
-t_vec3	vec3_negate(const t_vec3 *v)
+
+t_vec3	vec3_negate(const t_vec3 v)
 {
-	return (make_vec3(-v->e[0], -v->e[1], -v->e[2]));
+	return (make_vec3(-v.e[0], -v.e[1], -v.e[2]));
 }
+
 
 // Binary operators
 t_vec3	vec3_add(const t_vec3 *u, const t_vec3 *v)
@@ -61,6 +65,7 @@ t_vec3	vec3_mul(const t_vec3 *u, const t_vec3 *v)
 	return (make_vec3(u->e[0] * v->e[0], u->e[1] * v->e[1], u->e[2] * v->e[2]));
 }
 
+/*
 t_vec3	vec3_scale(double t, const t_vec3 *v)
 {
 	return (make_vec3(t * v->e[0], t * v->e[1], t * v->e[2]));
@@ -70,8 +75,10 @@ t_vec3	vec3_divide(const t_vec3 *v, double t)
 {
 	return (vec3_scale(1.0 / t, v));
 }
+*/
 
 // Utility functions
+/*
 double	vec3_length_squared(const t_vec3 *v)
 {
 	return (v->e[0] * v->e[0] + v->e[1] * v->e[1] + v->e[2] * v->e[2]);
@@ -87,7 +94,7 @@ t_vec3	vec3_unit_vector(const t_vec3 *v)
 	double len = vec3_length(v);
 	return (vec3_divide(v, len));
 }
-
+*/
 double	vec3_dot(const t_vec3 *u, const t_vec3 *v) //내적
 {
 	return (u->e[0] * v->e[0] + u->e[1] * v->e[1] + u->e[2] * v->e[2]);
@@ -101,7 +108,9 @@ t_vec3	vec3_cross(const t_vec3 *u, const t_vec3 *v) //외적
 }
 
 // Output
+/*
 void	vec3_output(const t_vec3 *v)
 {
 	printf("%f %f %f\n", v->e[0], v->e[1], v->e[2]);
 }
+*/
