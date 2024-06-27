@@ -20,8 +20,8 @@ t_dic	get_sp_dic(t_vec3 ray_to_pixel, t_sphere sp)
 
 	dic.a = vec3_dot(ray_to_pixel, ray_to_pixel);
 	dic.b = -2.0f * vec3_dot(ray_to_pixel, sp.center_pos);
-	dic.c = vec3_dot(sp.center_pos, sp.center_pos) - pow(sp.diameter, 2.0f);
-	dic.dic = pow(dic.b, 2) - 4 * dic.a * dic.c;
+	dic.c = vec3_dot(sp.center_pos, sp.center_pos) - pow(sp.diameter / 2.0f, 2.0f);
+	dic.dic = pow(dic.b, 2.0f) - 4.0f * dic.a * dic.c;
 	if (dic.dic < 0.0f)
 	{
 		dic.t_neg = 0.0f;
@@ -58,13 +58,13 @@ t_col_info	check_col_1sp(t_vec3 ray_to_pixel, t_sphere sp)
 			col.pos = scala_vec3_mul(dic.t_neg, ray_to_pixel);
 	}
 	col.n_vec = vec3_normalize(vec3_sub(col.pos, sp.center_pos));
-	if (vec3_dot(vec3_normalize(ray_to_pixel), col.n_vec) < 0.0f)
+	if (vec3_dot(ray_to_pixel, col.n_vec) > 0.0f)
 		col.n_vec = vec3_normalize(vec3_sub(sp.center_pos, col.pos));
 	col.color = sp.color;
 	return (col);
 }
 
-t_col_info	check_col_all_sp(t_vec3 ray_to_pixel, int sp_num, t_sphere *sp)
+t_col_info	 check_col_all_sp(t_vec3 ray_to_pixel, int sp_num, t_sphere *sp)
 {
 	int			i;
 	t_col_info	col;

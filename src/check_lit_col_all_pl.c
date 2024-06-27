@@ -32,7 +32,7 @@ int check_lit_col_all_pl(t_vec3 col_pos, t_factor *f)
 		}
 		t = -1.0f * vec3_dot(f->pl[i].unit_vec, l_sub_p) \
 			/ vec3_dot(f->pl[i].unit_vec, o_sub_l);
-		if (t > 0.0f && t < 1.0f)
+		if (t > 0.001f && t < 0.999f)
 			return (TRUE);
 		i++;
 	}

@@ -14,7 +14,7 @@
 
 double	vec3_get_norm(t_vec3 v)
 {
-	return (sqrt(pow(v.e[X], 2) + pow(v.e[Y], 2) + pow(v.e[Z], 2)));
+	return (sqrt(pow(v.e[X], 2.0f) + pow(v.e[Y], 2.0f) + pow(v.e[Z], 2.0f)));
 }
 
 t_vec3	vec3_normalize(t_vec3 v)
@@ -108,7 +108,7 @@ int	vec3_iszero(t_vec3 v)
 
 t_vec3	scala_vec3_mul(double scalar, t_vec3 v)
 {
-	return (make_vec3(scalar * v.e[X], scalar * v.e[Y], scalar * v.e[X]));
+	return (make_vec3(scalar * v.e[X], scalar * v.e[Y], scalar * v.e[Z]));
 }
 
 t_vec4	make_vec4(double x, double y, double z, double w)

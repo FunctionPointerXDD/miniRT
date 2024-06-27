@@ -12,9 +12,9 @@
 
 #include "../header/miniRT.h"
 
-int	create_rgb(int r, int g, int b)
+int	create_rgb(t_vec3 color)
 {
-	return (r << 16 | g << 8 | b);
+	return ((int)color.e[X] << 16 | (int)color.e[Y] << 8 | (int)color.e[Z]);
 }
 
 int	create_unit_rgb(t_vec3 color)
@@ -23,9 +23,9 @@ int	create_unit_rgb(t_vec3 color)
   int ug;
   int ub;
 
-  ur = (int)(255.999 * color.e[X]);
-  ug = (int)(255.999 * color.e[Y]);
-  ub = (int)(255.999 * color.e[Z]);
+  ur = (int)(255.0f * color.e[X]);
+  ug = (int)(255.0f * color.e[Y]);
+  ub = (int)(255.0f * color.e[Z]);
   return (ur << 16 | ug << 8 | ub);
 }
 

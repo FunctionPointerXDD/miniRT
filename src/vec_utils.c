@@ -94,7 +94,7 @@ t_vec3	vec3_unit_vector(const t_vec3 *v)
 
 double	vec3_dot(const t_vec3 u, const t_vec3 v) //내적
 {
-	return ((u.e[X] * v.e[X]) + (u.e[Y] * v.e[Y]) + (u.e[Z] * v.e[Z]));
+	return (u.e[X] * v.e[X] + u.e[Y] * v.e[Y] + u.e[Z] * v.e[Z]);
 }
 
 t_vec3	vec3_cross(const t_vec3 u, const t_vec3 v) //외적

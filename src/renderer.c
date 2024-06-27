@@ -28,7 +28,7 @@ double	get_focal_length(double fov)
 {
 	double	fov_rad;
 
-	fov_rad = get_radian(fov);
+	fov_rad = get_radian(fov / 2.0f);
 	if (sin(fov_rad) == 0.0f)
 		return (-1.0f);
 	else

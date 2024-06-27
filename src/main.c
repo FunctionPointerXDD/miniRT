@@ -92,7 +92,7 @@ int	main(int argc, char **argv)
 		   f->sp->center_pos.e[0], f->sp->center_pos.e[1], f->sp->center_pos.e[2], f->sp->diameter, f->sp->color.e[0], f->sp->color.e[1], f->sp->color.e[2],
 		   f->sp[1].center_pos.e[0], f->sp[1].center_pos.e[1], f->sp[1].center_pos.e[2], f->sp[1].diameter, f->sp[1].color.e[0], f->sp[1].color.e[1], f->sp[1].color.e[2],
 		   f->cy->center_pos.e[0], f->cy->center_pos.e[1], f->cy->center_pos.e[2], f->cy->unit_vec.e[0], f->cy->unit_vec.e[1], f->cy->unit_vec.e[2], f->cy->diameter, f->cy->height, f->cy->color.e[0], f->cy->color.e[1], f->cy->color.e[2]);
-		   */
+	*/	   
 	init_window(&vars);
 	/* -------------ray tracing START!------------ */
 	renderer(&vars, f);

@@ -26,8 +26,8 @@
 
 /* image.h */
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1300
+# define HEIGHT 1300
 # define ASPECT_RATIO 16.0 / 9.0
 # define ESC 53
 
@@ -72,7 +72,7 @@ typedef struct s_phong
 }	t_phong;
 
 //color.c
-int		create_rgb(int r, int g, int b);
+int		create_rgb(t_vec3 color);
 int		create_unit_rgb(t_vec3 color);
 t_vec3	clip_color(t_vec3 color);
 //int		get_t(int trgb);

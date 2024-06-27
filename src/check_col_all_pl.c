@@ -25,7 +25,7 @@ t_col_info	check_col_1pl(t_vec3 ray_to_pixel, t_plane pl)
 	if (t <= 0.0f)
 		return (get_fake_col());
 	col.pos = scala_vec3_mul(t, ray_to_pixel);
-	if (vec3_dot(ray_to_pixel, pl.unit_vec) < 0.0f)
+	if (vec3_dot(ray_to_pixel, pl.unit_vec) > 0.0f)
 		col.n_vec = vec3_negate(pl.unit_vec);
 	else
 		col.n_vec = pl.unit_vec;

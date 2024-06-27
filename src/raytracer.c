@@ -48,17 +48,20 @@ t_vec3	get_pixel_color(t_col_info col, t_factor *f)
 	t_phong	phong;
 	t_vec3	color;
 
+	if (vec3_iszero(col.n_vec) == TRUE)
+		return (make_vec3(0.0f, 0.0f, 0.0f));
 	phong.obj_color = scala_vec3_mul(1.0f / 255.0f, col.color);
 	phong.lit_color = scala_vec3_mul(1.0f / 255.0f, f->light->color);
-	phong.ambient = scala_vec3_mul(f->amb->range, vec3_mul(phong.obj_color, \
-		scala_vec3_mul(1.0f / 255.0f, f->amb->color)));
+	phong.ambient = scala_vec3_mul(f->amb->range, \
+		vec3_mul(scala_vec3_mul(1.0f / 255.0f, f->amb->color), phong.obj_color));
 	l = vec3_normalize(vec3_sub(f->light->light_pos, col.pos));
-	if (vec3_dot(col.n_vec, l) <= 0.0f || check_light_collision(col.pos, f) == TRUE)
-		return (scala_vec3_mul(255.0f, phong.ambient));
-	phong.diffuse = scala_vec3_mul(max(vec3_dot(col.n_vec, l), 0.0f), phong.obj_color);
+	if (vec3_dot(col.n_vec, l) < 0.0f || check_light_collision(col.pos, f) == TRUE)
+		return (phong.ambient);
+	phong.diffuse = scala_vec3_mul(f->light->range \
+		* max(vec3_dot(col.n_vec, l), 0.0f), phong.obj_color);
 	r = vec3_sub(scala_vec3_mul(2.0f * vec3_dot(l, col.n_vec), col.n_vec), l);
 	v = vec3_normalize(col.pos);
-	phong.specular = scala_vec3_mul(pow(max(vec3_dot(r, v), 0.0f), 64.0f), make_vec3(1.0f, 1.0f, 1.0f));
+	phong.specular = scala_vec3_mul(pow(max(-vec3_dot(r, v), 0.0f), 64.0f) * f->light->range, make_vec3(1.0f, 1.0f, 1.0f));
 	color = vec3_add(phong.ambient, phong.diffuse);
 	color = vec3_add(color, phong.specular);
 	color = clip_color(color);

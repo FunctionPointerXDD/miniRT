@@ -15,20 +15,32 @@
 
 t_vec3	*get_cy_xyz_local(t_cylinder cy)
 {
-	t_vec3		*local;
+	t_vec3	*local;
+	//t_vec3	up;
+	t_vec3	front;
+	t_vec3	right;
 
 	local = ft_calloc_adv(3, sizeof(t_vec3));
-	local[Y] = cy.unit_vec;
-	if (vec3_iszero(vec3_cross(local[Y], make_vec3(0.0f, 0.0f, 1.0f))) == TRUE)
-	{
-		local[Z] = vec3_cross(make_vec3(1.0f, 0.0f, 0.0f), local[Y]);
-		local[X] = vec3_cross(local[Y], local[Z]);
-	}
+	
+	right = make_vec3(1.0f, 0.0f, 0.0f);
+	front = make_vec3(0.0f, 0.0f, 1.0f);
+	local[Y] = vec3_normalize(cy.unit_vec);
+	if (vec3_iszero(vec3_cross(local[Y], front)) == TRUE)
+		local[X] = vec3_normalize(vec3_cross(local[Y], right));
 	else
-	{
-		local[X] = vec3_cross(local[Y], make_vec3(0.0f, 0.0f, 1.0f));
-		local[Z] = vec3_cross(local[X], local[Y]);
-	}
+		local[X] = vec3_normalize(vec3_cross(local[Y], front));
+	local[Z] = vec3_normalize(vec3_cross(local[X], local[Y]));
+	
+	/*
+	up = make_vec3(0.0f, 1.0f, 0.0f);
+	front = make_vec3(0.0f, 0.0f, 1.0f);
+	local[Z] = vec3_normalize(cy.unit_vec);
+	if (vec3_iszero(vec3_cross(up, local[Z])) == TRUE)
+		local[X] = vec3_cross(front, local[Z]);
+	else
+		local[X] = vec3_cross(up, local[Z]);
+	local[Y] = vec3_cross(local[Z], local[X]);
+	*/
 	return (local);
 }
 
