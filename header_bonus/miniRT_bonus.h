@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:56:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:45:20 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/29 20:03:28 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@
 
 # define WIDTH 800
 # define HEIGHT 800
-# define ASPECT_RATIO 16.0 / 9.0
 # define ESC 53
 
-typedef struct s_img_tool t_img_tool;
+typedef struct s_img_tool	t_img_tool;
 typedef struct s_vars
 {
 	void		*mlx;
