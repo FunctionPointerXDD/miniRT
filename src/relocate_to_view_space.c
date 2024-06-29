@@ -6,7 +6,7 @@
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:24:03 by sihong            #+#    #+#             */
-/*   Updated: 2024/06/24 11:24:08 by sihong           ###   ########.fr       */
+/*   Updated: 2024/06/29 18:38:24 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ void	relocate_spheres_to_view_space(int sp_num, t_sphere *sp, t_mat4x4 view)
 	while (i < sp_num)
 	{
 		sp[i].center_pos = \
-			relocate_vertex_to_view_space(sp[i].center_pos, view);	
+			relocate_vertex_to_view_space(sp[i].center_pos, view);
 		i += 1;
 	}
 }
 
-void	relocate_cylinders_to_view_space(int sy_num, t_cylinder *cy, t_mat4x4 view)
+void	relocate_cylinders_to_view_space(int sy_num, t_cylinder *cy, \
+		t_mat4x4 view)
 {
 	t_vec3	tmp;
 	int		i;

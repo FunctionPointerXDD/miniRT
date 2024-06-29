@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:59:53 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:24:20 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/29 18:24:31 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_calloc_adv(size_t count, size_t size)
 	alloc = ft_calloc(count, size);
 	if (!alloc)
 		ft_error_msg("malloc failed!\n", 255);
-	return (alloc);	
+	return (alloc);
 }
 
 char	**ft_split_adv(char *str)

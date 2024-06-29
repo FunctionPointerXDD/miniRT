@@ -6,7 +6,7 @@
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:17:16 by sihong            #+#    #+#             */
-/*   Updated: 2024/06/25 15:17:18 by sihong           ###   ########.fr       */
+/*   Updated: 2024/06/29 18:36:54 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_col_info	get_collision_location(t_vec3 ray_to_pixel, t_factor *f)
 	col = get_closer_coord(col, tmp);
 	tmp = check_col_all_pl(ray_to_pixel, f->tab[PLANE], f->pl);
 	col = get_closer_coord(col, tmp);
-
 	return (col);
 }
 
@@ -52,16 +51,17 @@ t_vec3	get_pixel_color(t_col_info col, t_factor *f)
 		return (make_vec3(0.0f, 0.0f, 0.0f));
 	phong.obj_color = scala_vec3_mul(1.0f / 255.0f, col.color);
 	phong.lit_color = scala_vec3_mul(1.0f / 255.0f, f->light->color);
-	phong.ambient = scala_vec3_mul(f->amb->range, \
-		vec3_mul(scala_vec3_mul(1.0f / 255.0f, f->amb->color), phong.obj_color));
+	phong.ambient = scala_vec3_mul(f->amb->range, vec3_mul(scala_vec3_mul(1.0f \
+					/ 255.0f, f->amb->color), phong.obj_color));
 	l = vec3_normalize(vec3_sub(f->light->light_pos, col.pos));
-	if (vec3_dot(col.n_vec, l) < 0.0f || check_light_collision(col.pos, f) == TRUE)
+	if (vec3_dot(col.n_vec, l) < 0.0f || check_light_collision(col.pos, f) == 1)
 		return (phong.ambient);
 	phong.diffuse = scala_vec3_mul(f->light->range \
 		* max(vec3_dot(col.n_vec, l), 0.0f), phong.obj_color);
 	r = vec3_sub(scala_vec3_mul(2.0f * vec3_dot(l, col.n_vec), col.n_vec), l);
 	v = vec3_normalize(col.pos);
-	phong.specular = scala_vec3_mul(pow(max(-vec3_dot(r, v), 0.0f), 64.0f) * f->light->range, make_vec3(1.0f, 1.0f, 1.0f));
+	phong.specular = scala_vec3_mul(pow(max(-vec3_dot(r, v), 0.0f), 64.0f) \
+			* f->light->range, make_vec3(1.0f, 1.0f, 1.0f));
 	color = vec3_add(phong.ambient, phong.diffuse);
 	color = vec3_add(color, phong.specular);
 	color = clip_color(color);
@@ -78,6 +78,7 @@ t_vec3	shoot_ray_to_pixel(t_vec3 ray_to_pixel, t_factor *f)
 	return (color);
 }
 
+/** if (f->cam->fov < 1.0f) --> black screen! */
 void	raytracer(t_vars *vars, t_factor *f)
 {
 	int		i;
@@ -87,10 +88,7 @@ void	raytracer(t_vars *vars, t_factor *f)
 	t_vec3	ray_to_pixel;
 
 	if (f->cam->fov < 1.0f)
-	{
-		//black_screen();
 		return ;
-	}
 	up_left_pixel = make_vec3(-1.0f, 1.0f, -get_focal_length(f->cam->fov));
 	i = 0;
 	while (i < HEIGHT)

@@ -6,14 +6,14 @@
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:15:27 by sihong            #+#    #+#             */
-/*   Updated: 2024/06/25 15:15:29 by sihong           ###   ########.fr       */
+/*   Updated: 2024/06/29 18:15:28 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/factor.h"
 #include "../header/miniRT.h"
 
-int check_lit_col_all_pl(t_vec3 col_pos, t_factor *f)
+int	check_lit_col_all_pl(t_vec3 col_pos, t_factor *f)
 {
 	int		i;
 	t_vec3	l_sub_p;

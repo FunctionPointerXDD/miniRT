@@ -6,7 +6,7 @@
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:53:26 by sihong            #+#    #+#             */
-/*   Updated: 2024/06/24 17:53:28 by sihong           ###   ########.fr       */
+/*   Updated: 2024/06/29 18:42:18 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 t_vec3	*get_cy_xyz_local(t_cylinder cy)
 {
 	t_vec3	*local;
-	//t_vec3	up;
 	t_vec3	front;
 	t_vec3	right;
+	//t_vec3	up;
 
 	local = ft_calloc_adv(3, sizeof(t_vec3));
 	
@@ -48,7 +48,7 @@ t_mat4x4	get_rev_cy_matrix(t_cylinder cy)
 {
 	t_mat4x4	rev_cy;
 	t_vec3		*local;
-	
+
 	local = get_cy_xyz_local(cy);
 	rev_cy.e[0][0] = local[X].e[X];
 	rev_cy.e[0][1] = local[X].e[Y];

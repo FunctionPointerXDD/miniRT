@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:54:26 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/29 17:46:32 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/29 19:57:06 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	exit_hook(void)
 	exit(0);
 }
 
-static int key_hook(int keycode, t_vars *vars)
+static int	key_hook(int keycode, t_vars *vars)
 {
 	if (keycode == ESC)
 	{

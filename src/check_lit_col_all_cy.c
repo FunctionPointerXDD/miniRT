@@ -6,7 +6,7 @@
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:12:02 by sihong            #+#    #+#             */
-/*   Updated: 2024/06/25 15:12:04 by sihong           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:54:12 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_dic	get_lit_cy_side(t_vec3 col_pos, t_vec3 lit_pos, double diameter)
 	dic.a = vec3_dot(o_sub_l, o_sub_l) - pow(o_sub_l.e[Y], 2.0f);
 	dic.b = 2.0f * vec3_dot(o_sub_l, lit_pos) \
 		- 2.0f * o_sub_l.e[Y] * lit_pos.e[Y];
-	dic.c = vec3_dot(lit_pos, lit_pos) - pow(lit_pos.e[Y], 2.0f) - pow(diameter / 2.0f, 2.0f);
+	dic.c = vec3_dot(lit_pos, lit_pos) - pow(lit_pos.e[Y], 2.0f) \
+			- pow(diameter / 2.0f, 2.0f);
 	dic.dic = pow(dic.b, 2) - 4 * dic.a * dic.c;
 	if (dic.dic < 0.0f)
 	{
@@ -37,7 +38,7 @@ t_dic	get_lit_cy_side(t_vec3 col_pos, t_vec3 lit_pos, double diameter)
 	return (dic);
 }
 
-int check_lit_col_cy_side(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
+int	check_lit_col_cy_side(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
 {
 	t_dic	dic;
 	double	y;
@@ -60,7 +61,7 @@ int check_lit_col_cy_side(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
 	return (FALSE);
 }
 
-int check_lit_col_cy_cap(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
+int	check_lit_col_cy_cap(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
 {
 	double	t;
 	double	x;
@@ -88,7 +89,7 @@ int check_lit_col_cy_cap(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
 	return (FALSE);
 }
 
-int check_lit_col_all_cy(t_vec3 col_pos, t_factor *f)
+int	check_lit_col_all_cy(t_vec3 col_pos, t_factor *f)
 {
 	int			i;
 	t_mat4x4	rev_cy;

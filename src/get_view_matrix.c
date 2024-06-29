@@ -6,7 +6,7 @@
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 11:27:28 by sihong            #+#    #+#             */
-/*   Updated: 2024/06/24 11:27:31 by sihong           ###   ########.fr       */
+/*   Updated: 2024/06/29 18:23:53 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ t_vec3	*get_camera_local_axis(t_camera *cam)
 	front = make_vec3(0.0f, 0.0f, 1.0f);
 	cam_loc_axis[Z] = vec3_normalize(cam->unit_vec);
 	if (vec3_iszero(vec3_cross(up, cam_loc_axis[Z])))
-		cam_loc_axis[X]	= vec3_normalize(vec3_cross(front, cam_loc_axis[Z]));
+		cam_loc_axis[X] = vec3_normalize(vec3_cross(front, cam_loc_axis[Z]));
 	else
 		cam_loc_axis[X] = vec3_normalize(vec3_cross(up, cam_loc_axis[Z]));
-	cam_loc_axis[Y] = vec3_normalize(vec3_cross(cam_loc_axis[Z], cam_loc_axis[X]));
+	cam_loc_axis[Y] = \
+				vec3_normalize(vec3_cross(cam_loc_axis[Z], cam_loc_axis[X]));
 	return (cam_loc_axis);
 }
 
@@ -35,7 +36,7 @@ t_mat4x4	get_view_matrix(t_camera *cam)
 {
 	t_vec3		*cam_loc_axis;
 	t_mat4x4	view;
-	
+
 	cam_loc_axis = get_camera_local_axis(cam);
 	view.e[0][0] = -cam_loc_axis[X].e[X];
 	view.e[0][1] = -cam_loc_axis[X].e[Y];

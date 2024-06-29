@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 15:44:29 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:44:33 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/29 18:28:17 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_factor	*input_info(t_factor *f, int fd, char *line, char **args)
 
 void	make_factor_tab(t_factor *f, int fd, char *line, char **args)
 {
-	while (1)	
+	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -110,8 +110,7 @@ t_factor	*get_factor(const char *path)
 	factor->sp = ft_calloc_adv(factor->tab[4], sizeof(t_sphere));
 	factor->cy = ft_calloc_adv(factor->tab[5], sizeof(t_cylinder));
 	fd = open_read_only(path);
-	factor = input_info(factor, fd, line, args); 
+	factor = input_info(factor, fd, line, args);
 	close(fd);
 	return (factor);
 }
-

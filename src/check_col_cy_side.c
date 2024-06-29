@@ -6,7 +6,7 @@
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:50:40 by sihong            #+#    #+#             */
-/*   Updated: 2024/06/24 17:50:45 by sihong           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:59:25 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ t_dic	get_side_dic(t_vec4 cam_pos, t_vec4 pl_pos, double diameter)
 	return (dic);
 }
 
-t_col_info	check_cy_height(t_vec4 cam_pos, t_vec4 pl_pos, t_cylinder cy, double t)
+t_col_info	check_cy_height(t_vec4 cam_pos, t_vec4 pl_pos, \
+		t_cylinder cy, double t)
 {
 	double		y;
 	t_col_info	col;
@@ -53,7 +54,8 @@ t_col_info	check_cy_height(t_vec4 cam_pos, t_vec4 pl_pos, t_cylinder cy, double 
 	else
 		return (get_fake_col());
 	col.n_vec = vec3_normalize(vec3_sub(col.pos, make_vec3(0.0f, y, 0.0f)));
-	ray_to_pixel = vec3_normalize(vec3_sub(contract_vec4_to_vec3(pl_pos), contract_vec4_to_vec3(cam_pos)));
+	ray_to_pixel = vec3_normalize(vec3_sub(contract_vec4_to_vec3(pl_pos), \
+				contract_vec4_to_vec3(cam_pos)));
 	if (vec3_dot(ray_to_pixel, col.n_vec) > 0.0f)
 		col.n_vec = vec3_normalize(vec3_sub(make_vec3(0.0f, y, 0.0f), col.pos));
 	col.color = cy.color;
@@ -82,7 +84,7 @@ t_col_info	check_col_cy_side(t_vec4 cam_pos, t_vec4 pl_pos, t_cylinder cy)
 	t_mat4x4	restore;
 
 	dic = get_side_dic(cam_pos, pl_pos, cy.diameter);
-	if (dic.dic < 0.0f || -dic.b + sqrt(dic.dic) <= 0.0f)
+	if (dic.dic < 0.0f || (-dic.b + sqrt(dic.dic)) <= 0.0f)
 		return (get_fake_col());
 	else
 	{
@@ -100,6 +102,6 @@ t_col_info	check_col_cy_side(t_vec4 cam_pos, t_vec4 pl_pos, t_cylinder cy)
 	{
 		restore = get_cy_matrix(cy);
 		col = restore_to_origin(restore, col);
-	} 
+	}
 	return (col);
 }
