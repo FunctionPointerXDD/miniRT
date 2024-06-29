@@ -2,13 +2,15 @@ NAME:= miniRT
 INCS:= header/miniRT.h
 BNS_INCS:= header_bonus/miniRT_bonus.h
 
-SRCS = src/main.c src/vec_utils.c src/parsing.c src/parse_utils.c \
+SRCS = src/main.c src/vec_utils.c src/vec_utils_2.c src/parsing.c src/parse_utils.c \
 	src/mem_utils.c src/color.c src/parse_utils_2.c src/atof.c src/ray.c \
 	src/calculator.c src/check_col_all_cy.c src/check_col_all_pl.c \
 	src/check_col_all_sp.c src/check_col_cy_side.c src/check_lit_col_all_cy.c \
 	src/check_lit_col_all_pl.c src/check_lit_col_all_sp.c \
 	src/get_cy_matrix.c src/get_view_matrix.c src/raytracer.c \
-	src/relocate_to_view_space.c src/renderer.c
+	src/relocate_to_view_space.c src/renderer.c src/calculator_2.c src/calculator_3.c \
+	src/parse_utils_3.c
+
 BNS_SRCS = src_bonus/main_bonus.c src_bonus/vec_utils_bonus.c \
 	src_bonus/parsing_bonus.c src_bonus/parse_utils_bonus.c \
 	src_bonus/mem_utils_bonus.c src_bonus/color_bonus.c \
