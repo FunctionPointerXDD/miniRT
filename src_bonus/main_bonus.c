@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:54:26 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/29 19:57:06 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:15:53 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	free_factor(t_factor *f)
 	free(f->cy);
 	free(f->pl);
 	free(f->sp);
+	free(f->co);
 	free(f);
 }
 

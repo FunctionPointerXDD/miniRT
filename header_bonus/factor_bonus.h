@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:32:40 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/29 19:50:42 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/07/02 13:15:23 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,26 @@ typedef struct s_cylinder
 	t_vec3	color;
 }	t_cylinder;
 
+typedef struct s_cone
+{
+	int		id;
+	t_vec3	center_pos;
+	t_vec3	unit_vec;
+	double	diameter;
+	double	height;
+	t_vec3	color;
+}	t_cone;
+
 typedef struct s_factor
 {
-	int			tab[6];
+	int			tab[7];
 	t_ambient	*amb;	
 	t_camera	*cam;
 	t_light		*light;
 	t_plane		*pl;
 	t_sphere	*sp;
 	t_cylinder	*cy;
+	t_cone		*co;
 }	t_factor;
 
 #endif

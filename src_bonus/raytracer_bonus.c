@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raytracer_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:17:16 by sihong            #+#    #+#             */
-/*   Updated: 2024/06/29 20:26:49 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:38:23 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,7 @@ t_vec3	shoot_ray_to_pixel(t_vec3 ray_to_pixel, t_factor *f)
 /** if (f->cam->fov < 1.0f) --> black screen! */
 void	raytracer(t_vars *vars, t_factor *f)
 {
-	int		i;
-	int		j;
-	int		pixel_color;
 	t_vec3	up_left_pixel;
-	t_vec3	ray_to_pixel;
 
 	if (f->cam->fov < 1.0f)
 	{
@@ -104,17 +100,5 @@ void	raytracer(t_vars *vars, t_factor *f)
 		return ;
 	}
 	up_left_pixel = get_vec3(-1.0f, 1.0f, -get_focal_length(f->cam->fov));
-	i = -1;
-	while (++i < HEIGHT)
-	{
-		j = 0;
-		while (j < WIDTH)
-		{
-			ray_to_pixel = vec3_normalize(vec3_add(up_left_pixel, \
-				get_vec3(2.0f / WIDTH * j, -2.0f / HEIGHT * i, 0)));
-			pixel_color = create_unit_rgb(shoot_ray_to_pixel(ray_to_pixel, f));
-			my_mlx_pixel_put(vars, j, i, pixel_color);
-			j++;
-		}
-	}
+	distribute_to_thread(4, 4, vars, f);
 }

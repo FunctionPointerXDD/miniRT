@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:56:30 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/29 20:28:43 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/07/02 15:28:28 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <stdlib.h>
+# include <pthread.h>
+# include <stdio.h>
 # include <math.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -67,6 +69,28 @@ typedef struct s_phong
 	t_vec3	diffuse;
 	t_vec3	specular;
 }	t_phong;
+
+typedef struct s_thread_data
+{
+	int			start_x;
+	int			end_x;
+	int			start_y;
+	int			end_y;
+	t_vec3		up_left_pixel;
+	t_vars		*vars;
+	t_factor	*f;
+}	t_thread_data;
+
+typedef struct s_thread_tool
+{
+	t_vars		*vars;
+	t_factor	*f;
+	t_vec3		up_left_pixel;
+    int			num_threads;
+    int			section_width;
+    int			section_height;
+	int			cols;
+}	t_thread_tool;
 
 //color.c
 int			create_rgb(t_vec3 color);
@@ -138,5 +162,6 @@ void		black_screen(t_vars *vars);
 void		translate_to_view_space(t_factor *f);
 double		get_focal_length(double fov);
 void		renderer(t_vars *vars, t_factor *f);
+void		distribute_to_thread(int rows, int cols, t_vars *vars, t_factor *f);
 
 #endif

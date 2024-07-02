@@ -18,7 +18,7 @@ BNS_SRCS = src_bonus/main_bonus.c src_bonus/vec_utils_bonus.c src_bonus/vec_util
 	src_bonus/check_lit_col_all_pl_bonus.c src_bonus/check_lit_col_all_sp_bonus.c \
 	src_bonus/get_cy_matrix_bonus.c src_bonus/get_view_matrix_bonus.c src_bonus/raytracer_bonus.c \
 	src_bonus/relocate_to_view_space_bonus.c src_bonus/renderer_bonus.c src_bonus/calculator_2_bonus.c src_bonus/calculator_3_bonus.c \
-	src_bonus/parse_utils_3_bonus.c
+	src_bonus/parse_utils_3_bonus.c src_bonus/distribute_to_thread.c
 
 OBJS = $(SRCS:.c=.o)
 BNS_OBJS = $(BNS_SRCS:.c=.o)
