@@ -13,7 +13,7 @@
 #include "../header/miniRT.h"
 
 // Constructors
-t_vec3	make_vec3(double e0, double e1, double e2)
+t_vec3	get_vec3(double e0, double e1, double e2)
 {
 	t_vec3	v;
 
@@ -26,21 +26,21 @@ t_vec3	make_vec3(double e0, double e1, double e2)
 // Unary operators
 t_vec3	vec3_negate(const t_vec3 v)
 {
-	return (make_vec3(-v.e[X], -v.e[Y], -v.e[Z]));
+	return (get_vec3(-v.e[X], -v.e[Y], -v.e[Z]));
 }
 
 // Binary operators
 t_vec3	vec3_add(const t_vec3 u, const t_vec3 v)
 {
-	return (make_vec3(u.e[X] + v.e[X], u.e[Y] + v.e[Y], u.e[Z] + v.e[Z]));
+	return (get_vec3(u.e[X] + v.e[X], u.e[Y] + v.e[Y], u.e[Z] + v.e[Z]));
 }
 
 t_vec3	vec3_sub(const t_vec3 u, const t_vec3 v)
 {
-	return (make_vec3(u.e[X] - v.e[X], u.e[Y] - v.e[Y], u.e[Z] - v.e[Z]));
+	return (get_vec3(u.e[X] - v.e[X], u.e[Y] - v.e[Y], u.e[Z] - v.e[Z]));
 }
 
 t_vec3	vec3_mul(const t_vec3 u, const t_vec3 v)
 {
-	return (make_vec3(u.e[X] * v.e[X], u.e[Y] * v.e[Y], u.e[Z] * v.e[Z]));
+	return (get_vec3(u.e[X] * v.e[X], u.e[Y] * v.e[Y], u.e[Z] * v.e[Z]));
 }

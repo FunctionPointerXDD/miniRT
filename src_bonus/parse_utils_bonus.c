@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:11:35 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:29:25 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/29 18:27:14 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static char	*ft_strpbrk(const char *cs, const char *ct)
 	while (*sc != '\0')
 	{
 		if (ft_strchr(ct, *sc))
-			return (char *)sc;
+			return ((char *)sc);
 		++sc;
 	}
 	return (NULL);
@@ -53,7 +53,7 @@ char	*ft_strsep(char **s, const char *ct)
 
 	sbegin = *s;
 	if (sbegin == NULL)
-		return NULL;
+		return (NULL);
 	end = ft_strpbrk(sbegin, ct);
 	if (end)
 		*end++ = '\0';

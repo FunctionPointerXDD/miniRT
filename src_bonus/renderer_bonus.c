@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   renderer.c                                         :+:      :+:    :+:   */
+/*   renderer_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/factor.h"
-#include "../header/miniRT.h"
+#include "../header_bonus/factor_bonus.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 void	black_screen(t_vars *vars)
 {
@@ -36,7 +36,7 @@ void	translate_to_view_space(t_factor *f)
 	t_mat4x4	view;
 
 	view = get_view_matrix(f->cam);
-	relocate_lights_to_view_space(f->light, view);
+	relocate_lights_to_view_space(f->tab[LIGHT], f->light, view);
 	relocate_planes_to_view_space(f->tab[PLANE], f->pl, view);
 	relocate_spheres_to_view_space(f->tab[SPHERE], f->sp, view);
 	relocate_cylinders_to_view_space(f->tab[CYLINDER], f->cy, view);

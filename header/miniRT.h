@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include "vector.h"
 # include "parsing.h"
@@ -64,7 +63,6 @@ typedef struct s_dic
 typedef struct s_phong
 {
 	t_vec3	obj_color;
-	t_vec3	lit_color;
 	t_vec3	ambient;
 	t_vec3	diffuse;
 	t_vec3	specular;
@@ -133,6 +131,7 @@ t_vec3		get_pixel_color(t_col_info col, t_factor *f);
 t_vec3		shoot_ray_to_pixel(t_vec3 ray_to_pixel, t_factor *f);
 void		raytracer(t_vars *vars, t_factor *f);
 //renderer.c
+void		black_screen(t_vars *vars);
 void		translate_to_view_space(t_factor *f);
 double		get_focal_length(double fov);
 void		renderer(t_vars *vars, t_factor *f);

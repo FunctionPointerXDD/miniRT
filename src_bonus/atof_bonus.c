@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:52:09 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:27:24 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/29 17:52:47 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static double	cal_atof(char *str, int neg, int digit, int dot)
 	}
 	return (ret * neg);
 }
-
 
 static void	valid_check(char *str)
 {

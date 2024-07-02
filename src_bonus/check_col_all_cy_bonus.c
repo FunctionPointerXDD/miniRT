@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_col_all_cy.c                                 :+:      :+:    :+:   */
+/*   check_col_all_cy_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/factor.h"
-#include "../header/miniRT.h"
+#include "../header_bonus/factor_bonus.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 t_col_info	get_col_cy_cap(int sign, t_vec4 cam_pos, t_vec4 pl_pos, \
 							t_cylinder cy)

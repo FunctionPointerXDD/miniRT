@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_utils_2.c                                      :+:      :+:    :+:   */
+/*   calculator_3_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42seoul.>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/29 18:40:48 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/29 20:16:39 by chansjeo         ###   ########.fr       */
+/*   Created: 2024/06/29 18:02:24 by chansjeo          #+#    #+#             */
+/*   Updated: 2024/06/29 18:02:54 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/miniRT.h"
+#include "../header_bonus/miniRT_bonus.h"
 
-// dot
-double	vec3_dot(const t_vec3 u, const t_vec3 v)
+double	get_radian(double angle)
 {
-	return (u.e[X] * v.e[X] + u.e[Y] * v.e[Y] + u.e[Z] * v.e[Z]);
+	if (angle < 0.0f)
+		return (-1.0f);
+	return (PIE / 180.0f * angle);
 }
 
-// Cross
-t_vec3	vec3_cross(const t_vec3 u, const t_vec3 v)
+double	max(double a, double b)
 {
-	return (get_vec3(u.e[Y] * v.e[Z] - u.e[Z] * v.e[Y], \
-				u.e[Z] * v.e[X] - u.e[X] * v.e[Z], \
-				u.e[X] * v.e[Y] - u.e[Y] * v.e[X]));
+	if (a < b)
+		return (b);
+	else
+		return (a);
 }

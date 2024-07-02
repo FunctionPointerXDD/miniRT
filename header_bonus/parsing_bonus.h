@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 21:30:01 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/29 20:03:55 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/06/29 19:52:16 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int			is_space(const char *str);
 char		*ft_strsep(char **s, const char *ct);
 int			check_filename(const char *path);
 int			open_read_only(const char *path);
-
 void		get_three_pos(t_vec3 *v, char *arg, int type);
 void		get_amb(t_ambient *amb, char **args);
 void		get_cam(t_camera *cam, char **args);

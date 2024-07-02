@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_view_matrix.c                                  :+:      :+:    :+:   */
+/*   get_view_matrix_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/factor.h"
-#include "../header/miniRT.h"
+#include "../header_bonus/factor_bonus.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 t_vec3	*get_camera_local_axis(t_camera *cam)
 {

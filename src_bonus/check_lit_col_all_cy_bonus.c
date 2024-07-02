@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_lit_col_all_cy.c                             :+:      :+:    :+:   */
+/*   check_lit_col_all_cy_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/factor.h"
-#include "../header/miniRT.h"
+#include "../header_bonus/factor_bonus.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 t_dic	get_lit_cy_side(t_vec3 col_pos, t_vec3 lit_pos, double diameter)
 {
@@ -89,7 +89,7 @@ int	check_lit_col_cy_cap(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
 	return (FALSE);
 }
 
-int	check_lit_col_all_cy(t_vec3 col_pos, t_factor *f)
+int	check_lit_col_all_cy(int lit_num, t_vec3 col_pos, t_factor *f)
 {
 	int			i;
 	t_mat4x4	rev_cy;
@@ -103,7 +103,7 @@ int	check_lit_col_all_cy(t_vec3 col_pos, t_factor *f)
 		n_col_pos = vec4_to_3(mat4x4_vec4_mul(rev_cy, \
 			vec3_to_4(col_pos, 1.0f)));
 		n_lit_pos = vec4_to_3(mat4x4_vec4_mul(rev_cy, \
-			vec3_to_4(f->light->light_pos, 1.0f)));
+			vec3_to_4(f->light[lit_num].light_pos, 1.0f)));
 		if (check_lit_col_cy_side(n_col_pos, n_lit_pos, f->cy[i]) == TRUE \
 			|| check_lit_col_cy_cap(n_col_pos, n_lit_pos, f->cy[i]) == TRUE)
 			return (TRUE);

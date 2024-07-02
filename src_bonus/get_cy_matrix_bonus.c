@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_cy_matrix.c                                    :+:      :+:    :+:   */
+/*   get_cy_matrix_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/factor.h"
-#include "../header/miniRT.h"
+#include "../header_bonus/factor_bonus.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 t_vec3	*get_cy_xyz_local(t_cylinder cy)
 {

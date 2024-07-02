@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 19:23:53 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/21 15:28:50 by chansjeo         ###   ########.fr       */
+/*   Created: 2024/06/21 15:44:29 by chansjeo          #+#    #+#             */
+/*   Updated: 2024/06/29 18:28:17 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_factor	*input_info(t_factor *f, int fd, char *line, char **args)
 
 void	make_factor_tab(t_factor *f, int fd, char *line, char **args)
 {
-	while (1)	
+	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -100,8 +100,8 @@ t_factor	*get_factor(const char *path)
 	fd = open_read_only(path);
 	factor = ft_calloc_adv(1, sizeof(t_factor));
 	make_factor_tab(factor, fd, line, args);
-	if (factor->tab[0] == 0 || factor->tab[1] == 0 || factor->tab[2] == 0)
-		ft_error_msg("Factors must have at least one factor.\n", 1);
+	if (factor->tab[0] != 1 || factor->tab[1] != 1 || factor->tab[2] < 1)
+		ft_error_msg("Factors must have only one factor.\n", 1);
 	close(fd);
 	factor->amb = ft_calloc_adv(factor->tab[0], sizeof(t_ambient));
 	factor->cam = ft_calloc_adv(factor->tab[1], sizeof(t_camera));
@@ -110,8 +110,7 @@ t_factor	*get_factor(const char *path)
 	factor->sp = ft_calloc_adv(factor->tab[4], sizeof(t_sphere));
 	factor->cy = ft_calloc_adv(factor->tab[5], sizeof(t_cylinder));
 	fd = open_read_only(path);
-	factor = input_info(factor, fd, line, args); 
+	factor = input_info(factor, fd, line, args);
 	close(fd);
 	return (factor);
 }
-

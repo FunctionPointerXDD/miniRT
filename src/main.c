@@ -64,14 +64,7 @@ int	main(int argc, char **argv)
 		ft_error_msg("usage: ./miniRT [filename].rt\n", 1);
 	f = get_factor(argv[1]);
 	init_window(&vars);
-	/* -------------ray tracing START!------------ */
 	renderer(&vars, f);
-	///////////////////
-	//               //
-	//  ray_tracing  //
-	//               //
-	///////////////////
-	/* -------------ray tracing END!------------ */
 	mlx_put_image_to_window(vars.mlx, vars.win, vars.img, 0, 0);
 	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_hook(vars.win, 17, 0, exit_hook, 0);

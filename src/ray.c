@@ -17,9 +17,9 @@ t_col_info	get_fake_col(void)
 {
 	t_col_info	col;
 
-	col.pos = make_vec3(0.0f, 0.0f, 0.0f);
-	col.n_vec = make_vec3(0.0f, 0.0f, 0.0f);
-	col.color = make_vec3(0.0f, 0.0f, 0.0f);
+	col.pos = get_vec3(0.0f, 0.0f, 0.0f);
+	col.n_vec = get_vec3(0.0f, 0.0f, 0.0f);
+	col.color = get_vec3(0.0f, 0.0f, 0.0f);
 	return (col);
 }
 

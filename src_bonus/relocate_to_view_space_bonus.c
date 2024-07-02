@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   relocate_to_view_space.c                           :+:      :+:    :+:   */
+/*   relocate_to_view_space_bonus.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sihong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/factor.h"
-#include "../header/miniRT.h"
+#include "../header_bonus/factor_bonus.h"
+#include "../header_bonus/miniRT_bonus.h"
 
 t_vec3	relocate_vertex_to_view_space(t_vec3 v3, t_mat4x4 view)
 {
@@ -23,10 +23,17 @@ t_vec3	relocate_vertex_to_view_space(t_vec3 v3, t_mat4x4 view)
 	return (output);
 }
 
-void	relocate_lights_to_view_space(t_light *light, t_mat4x4 view)
+void	relocate_lights_to_view_space(int lit_num, t_light *light, t_mat4x4 view)
 {
-	light->light_pos = \
-		relocate_vertex_to_view_space(light->light_pos, view);
+	int	i;
+
+	i = 0;
+	while (i < lit_num)
+	{
+		light[i].light_pos = \
+			relocate_vertex_to_view_space(light[i].light_pos, view);
+		i++;
+	}
 }
 
 void	relocate_planes_to_view_space(int pl_num, t_plane *pl, t_mat4x4 view)
