@@ -100,7 +100,7 @@ t_vec3		*get_cy_xyz_local(t_cylinder cy);
 t_mat4x4	get_rev_cy_matrix(t_cylinder cy);
 t_mat4x4	get_cy_matrix(t_cylinder cy);
 //check_col_cy_side.c
-t_dic		get_side_dic(t_vec4 cam_pos, t_vec4 pl_pos, double diameter);
+t_dic		get_cy_side_dic(t_vec4 cam_pos, t_vec4 pl_pos, double diameter);
 t_col_info	check_cy_height(t_vec4 cam_pos, t_vec4 pl_pos, t_cylinder cy, \
 			double t);
 t_col_info	restore_to_origin(t_mat4x4 restore, t_col_info col);

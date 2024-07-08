@@ -55,13 +55,13 @@ t_col_info	check_col_cy_cap(t_vec4 cam_pos, t_vec4 pl_pos, t_cylinder cy)
 	p1 = get_col_cy_cap(1, cam_pos, pl_pos, cy);
 	if (vec3_iszero(p1.n_vec) == FALSE)
 	{
-		restore = get_cy_matrix(cy);
+		restore = get_fi_matrix(cy.center_pos, cy.unit_vec);
 		p1 = restore_to_origin(restore, p1);
 	}
 	p2 = get_col_cy_cap(-1, cam_pos, pl_pos, cy);
 	if (vec3_iszero(p2.n_vec) == FALSE)
 	{
-		restore = get_cy_matrix(cy);
+		restore = get_fi_matrix(cy.center_pos, cy.unit_vec);
 		p2 = restore_to_origin(restore, p2);
 	}
 	col = get_closer_coord(p1, p2);
@@ -81,7 +81,7 @@ t_col_info	check_col_all_cy(t_vec3 ray_to_pixel, int cy_num, t_cylinder *cy)
 	col = get_fake_col();
 	while (i < cy_num)
 	{
-		rev_cy = get_rev_cy_matrix(cy[i]);
+		rev_cy = get_rev_fi_matrix(cy[i].center_pos, cy[i].unit_vec);
 		cam_pos = mat4x4_vec4_mul(rev_cy, get_vec4(0.0f, 0.0f, 0.0f, 1.0f));
 		pl_pos = mat4x4_vec4_mul(rev_cy, \
 				vec3_to_4(ray_to_pixel, 1.0f));

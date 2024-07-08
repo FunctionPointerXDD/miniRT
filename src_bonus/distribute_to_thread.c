@@ -31,7 +31,7 @@ void	*render_section(void *arg)
 			ray_to_pixel = vec3_normalize(vec3_add(d->up_left_pixel, \
 				get_vec3(2.0f / WIDTH * j, -2.0f / HEIGHT * i, 0)));
 			pixel_color = create_unit_rgb(shoot_ray_to_pixel(ray_to_pixel, \
-			d->f));
+			d->f, d->vars));
 			my_mlx_pixel_put(d->vars, j, i, pixel_color);
 			j++;
 		}

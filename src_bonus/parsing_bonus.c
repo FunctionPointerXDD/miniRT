@@ -88,7 +88,7 @@ void	alloc_factor(t_factor *factor)
 	factor->pl = ft_calloc_adv(factor->tab[3], sizeof(t_plane));
 	factor->sp = ft_calloc_adv(factor->tab[4], sizeof(t_sphere));
 	factor->cy = ft_calloc_adv(factor->tab[5], sizeof(t_cylinder));
-	factor->co = ft_calloc_adv(factor->tab[5], sizeof(t_cone));
+	factor->co = ft_calloc_adv(factor->tab[6], sizeof(t_cone));
 }
 
 t_factor	*get_factor(const char *path)

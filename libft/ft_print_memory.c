@@ -89,12 +89,6 @@ void	ft_str_print_char(unsigned char *str, unsigned int size)
 	write(1, " ", 1);
 	while (size--)
 	{
-		/*
-		if (*str == '\0')
-		{
-			write(1, ".", 1);
-		}
-		*/
 		if (!(*str >= 32 && *str <= 126))
 			write(1, ".", 1);
 		else
@@ -128,13 +122,3 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	}
 	return (addr);
 }
-
-/*
-int main(void)
-{
-	char data[] = { "Bonjour les amincfijef\0iejifidinei\0" };
-
-	ft_print_memory(data, sizeof(data));
-	return (0);
-}
-*/

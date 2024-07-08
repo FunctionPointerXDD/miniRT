@@ -23,7 +23,8 @@ t_vec3	relocate_vertex_to_view_space(t_vec3 v3, t_mat4x4 view)
 	return (output);
 }
 
-void	relocate_lights_to_view_space(int lit_num, t_light *light, t_mat4x4 view)
+void	relocate_lights_to_view_space(int lit_num, \
+		t_light *light, t_mat4x4 view)
 {
 	int	i;
 

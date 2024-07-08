@@ -13,7 +13,7 @@
 #include "../header/factor.h"
 #include "../header/miniRT.h"
 
-t_dic	get_side_dic(t_vec4 cam_pos, t_vec4 pl_pos, double diameter)
+t_dic	get_cy_side_dic(t_vec4 cam_pos, t_vec4 pl_pos, double diameter)
 {
 	t_dic	dic;
 	t_vec3	c;
@@ -83,7 +83,7 @@ t_col_info	check_col_cy_side(t_vec4 cam_pos, t_vec4 pl_pos, t_cylinder cy)
 	t_col_info	col;
 	t_mat4x4	restore;
 
-	dic = get_side_dic(cam_pos, pl_pos, cy.diameter);
+	dic = get_cy_side_dic(cam_pos, pl_pos, cy.diameter);
 	if (dic.dic < 0.0f || (-dic.b + sqrt(dic.dic)) <= 0.0f)
 		return (get_fake_col());
 	else

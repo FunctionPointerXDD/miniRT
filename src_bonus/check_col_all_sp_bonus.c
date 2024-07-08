@@ -87,16 +87,20 @@ t_vec3	get_checker_ball(t_col_info col, t_sphere sp)
 	t_vec3	c_col;
 	double	col_angle;
 	double	height;
-	
+
 	o = get_vec3(0.0f, 0.0f, 1.0f);
-	c_col = vec3_normalize(vec3_sub(col.pos, get_vec3(sp.center_pos.e[X], col.pos.e[Y], sp.center_pos.e[Z])));
+	c_col = vec3_normalize(vec3_sub(col.pos, \
+		get_vec3(sp.center_pos.e[X], col.pos.e[Y], sp.center_pos.e[Z])));
 	height = col.pos.e[Y] - sp.center_pos.e[Y];
-	col_angle = acos(o.e[X] * c_col.e[X] + o.e[Z] * c_col.e[Z]) * (180.0f / PIE);
+	col_angle = \
+		acos(o.e[X] * c_col.e[X] + o.e[Z] * c_col.e[Z]) * (180.0f / PIE);
 	if (((int)(col_angle / 30.0f) % 2 == 0 && c_col.e[X] < o.e[X]) \
 		|| ((int)(col_angle / 30.0f) % 2 == 1 && c_col.e[X] > o.e[X]))
-		return (get_checker_ball_2(height, sp.diameter, sp.color, get_vec3(255.0f, 255.0f, 255.0f)));
+		return (get_checker_ball_2(height, sp.diameter, \
+			sp.color, get_vec3(255.0f, 255.0f, 255.0f)));
 	else
-		return (get_checker_ball_2(height, sp.diameter, get_vec3(255.0f, 255.0f, 255.0f), sp.color));
+		return (get_checker_ball_2(height, sp.diameter, \
+			get_vec3(255.0f, 255.0f, 255.0f), sp.color));
 }
 
 t_col_info	check_col_all_sp(t_vec3 ray_to_pixel, int sp_num, t_sphere *sp)

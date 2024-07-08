@@ -12,13 +12,16 @@ SRCS = src/main.c src/vec_utils.c src/vec_utils_2.c src/parsing.c src/parse_util
     src/parse_utils_3.c
 
 BNS_SRCS = src_bonus/main_bonus.c src_bonus/vec_utils_bonus.c src_bonus/vec_utils_2_bonus.c src_bonus/parsing_bonus.c src_bonus/parse_utils_bonus.c \
-	src_bonus/mem_utils_bonus.c src_bonus/color_bonus.c src_bonus/parse_utils_2_bonus.c src_bonus/atof_bonus.c src_bonus/ray_bonus.c \
-	src_bonus/calculator_bonus.c src_bonus/check_col_all_cy_bonus.c src_bonus/check_col_all_pl_bonus.c \
+	src_bonus/mem_utils_bonus.c src_bonus/color_bonus.c src_bonus/color_2_bonus.c src_bonus/parse_utils_2_bonus.c src_bonus/atof_bonus.c src_bonus/ray_bonus.c \
+	src_bonus/calculator_bonus.c src_bonus/check_col_all_cy_bonus.c src_bonus/check_col_all_pl_bonus.c src_bonus/get_texture_plane.c \
 	src_bonus/check_col_all_sp_bonus.c src_bonus/check_col_cy_side_bonus.c src_bonus/check_lit_col_all_cy_bonus.c \
-	src_bonus/check_lit_col_all_pl_bonus.c src_bonus/check_lit_col_all_sp_bonus.c \
-	src_bonus/get_cy_matrix_bonus.c src_bonus/get_view_matrix_bonus.c src_bonus/raytracer_bonus.c \
-	src_bonus/relocate_to_view_space_bonus.c src_bonus/renderer_bonus.c src_bonus/calculator_2_bonus.c src_bonus/calculator_3_bonus.c \
-	src_bonus/parse_utils_3_bonus.c src_bonus/distribute_to_thread.c
+	src_bonus/check_lit_col_all_pl_bonus.c src_bonus/check_lit_col_all_sp_bonus.c src_bonus/check_lit_col_all_co_bonus.c\
+	src_bonus/get_fi_matrix_bonus.c src_bonus/get_view_matrix_bonus.c src_bonus/raytracer_bonus.c \
+	src_bonus/relocate_to_view_space_bonus.c src_bonus/relocate_to_view_space_bonus_2.c \
+	src_bonus/renderer_bonus.c src_bonus/calculator_2_bonus.c src_bonus/calculator_3_bonus.c \
+	src_bonus/parse_utils_3_bonus.c src_bonus/distribute_to_thread.c \
+	src_bonus/check_col_all_co_bonus.c src_bonus/check_col_all_co_bonus_2.c \
+	src_bonus/get_pixel_color.c src_bonus/init_mlx_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 BNS_OBJS = $(BNS_SRCS:.c=.o)

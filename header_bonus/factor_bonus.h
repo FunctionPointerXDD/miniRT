@@ -23,6 +23,7 @@ typedef enum e_element
 	PLANE,
 	SPHERE,
 	CYLINDER,
+	CONE
 }	t_element;
 
 typedef struct s_ambient

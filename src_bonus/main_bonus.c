@@ -12,12 +12,12 @@
 
 #include "../header_bonus/miniRT_bonus.h"
 
-static int	exit_hook(void)
+int	exit_hook(void)
 {
 	exit(0);
 }
 
-static int	key_hook(int keycode, t_vars *vars)
+int	key_hook(int keycode, t_vars *vars)
 {
 	if (keycode == ESC)
 	{
@@ -25,23 +25,6 @@ static int	key_hook(int keycode, t_vars *vars)
 		exit(0);
 	}
 	return (0);
-}
-
-static void	init_window(t_vars *vars)
-{
-	vars->mlx = mlx_init();
-	if (vars->mlx == NULL)
-		exit(1);
-	vars->win = mlx_new_window(vars->mlx, WIDTH, HEIGHT, "miniRT");
-	if (vars->win == NULL)
-		exit(1);
-	vars->img = mlx_new_image(vars->mlx, WIDTH, HEIGHT);
-	if (vars->img == NULL)
-		exit(1);
-	vars->addr = mlx_get_data_addr(vars->img, &vars->bits_per_pixel, \
-			&vars->line_length, &vars->endian);
-	if (vars->addr == NULL)
-		exit(1);
 }
 
 void	free_factor(t_factor *f)

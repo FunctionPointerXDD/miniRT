@@ -33,7 +33,8 @@ t_col_info	check_col_1pl(t_vec3 ray_to_pixel, t_plane pl)
 	return (col);
 }
 
-t_col_info	check_col_all_pl(t_vec3 ray_to_pixel, int pl_num, t_plane *pl)
+t_col_info	check_col_all_pl(t_vec3 ray_to_pixel, \
+	int pl_num, t_plane *pl, t_vars *vars)
 {
 	int			i;
 	t_col_info	col;
@@ -43,6 +44,9 @@ t_col_info	check_col_all_pl(t_vec3 ray_to_pixel, int pl_num, t_plane *pl)
 	while (i < pl_num)
 	{
 		col = get_closer_coord(col, check_col_1pl(ray_to_pixel, pl[i]));
+		(void)vars;
+		if (i == 0 && vec3_iszero(col.n_vec) == FALSE)
+			col = get_texture_plane(col, pl[i], vars);
 		i++;
 	}
 	return (col);

@@ -40,6 +40,7 @@ void	translate_to_view_space(t_factor *f)
 	relocate_planes_to_view_space(f->tab[PLANE], f->pl, view);
 	relocate_spheres_to_view_space(f->tab[SPHERE], f->sp, view);
 	relocate_cylinders_to_view_space(f->tab[CYLINDER], f->cy, view);
+	relocate_cones_to_view_space(f->tab[CONE], f->co, view);
 }
 
 double	get_focal_length(double fov)

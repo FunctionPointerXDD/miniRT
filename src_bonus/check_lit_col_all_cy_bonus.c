@@ -46,13 +46,13 @@ int	check_lit_col_cy_side(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
 	dic = get_lit_cy_side(col_pos, lit_pos, cy.diameter);
 	if (dic.dic <= 0.0f)
 		return (FALSE);
-	if (dic.t_neg > 0.005f && dic.t_neg < 0.995f)
+	if (dic.t_neg > 0.001f && dic.t_neg < 0.999f)
 	{
 		y = dic.t_neg * col_pos.e[Y] + (1.0f - dic.t_neg) * lit_pos.e[Y];
 		if (y > -cy.height / 2.0f && y < cy.height / 2.0f)
 			return (TRUE);
 	}
-	if (dic.t_pos > 0.005f && dic.t_pos < 0.995f)
+	if (dic.t_pos > 0.001f && dic.t_pos < 0.999f)
 	{
 		y = dic.t_pos * col_pos.e[Y] + (1.0f - dic.t_pos) * lit_pos.e[Y];
 		if (y > -cy.height / 2.0f && y < cy.height / 2.0f)
@@ -67,15 +67,14 @@ int	check_lit_col_cy_cap(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
 	double	x;
 	double	z;
 
-	if (col_pos.e[Y] == lit_pos.e[Y] && \
-		(lit_pos.e[Y] == cy.height / 2.0f || lit_pos.e[Y] == -cy.height / 2.0f))
+	if (col_pos.e[Y] == lit_pos.e[Y])
 		return (FALSE);
 	t = (-lit_pos.e[Y] + cy.height / 2.0f) / (col_pos.e[Y] - lit_pos.e[Y]);
 	if (t > 0.001f && t < 0.999f)
 	{
 		x = col_pos.e[X] * t + lit_pos.e[X] * (1 - t);
 		z = col_pos.e[Z] * t + lit_pos.e[Z] * (1 - t);
-		if (pow(x, 2.0f) + pow(z, 2.0f) == pow(cy.diameter / 2.0f, 2.0f))
+		if (pow(x, 2.0f) + pow(z, 2.0f) <= pow(cy.diameter / 2.0f, 2.0f))
 			return (TRUE);
 	}
 	t = (-lit_pos.e[Y] - cy.height / 2.0f) / (col_pos.e[Y] - lit_pos.e[Y]);
@@ -83,7 +82,7 @@ int	check_lit_col_cy_cap(t_vec3 col_pos, t_vec3 lit_pos, t_cylinder cy)
 	{
 		x = col_pos.e[X] * t + lit_pos.e[X] * (1 - t);
 		z = col_pos.e[Z] * t + lit_pos.e[Z] * (1 - t);
-		if (pow(x, 2.0f) + pow(z, 2.0f) == pow(cy.diameter / 2.0f, 2.0f))
+		if (pow(x, 2.0f) + pow(z, 2.0f) <= pow(cy.diameter / 2.0f, 2.0f))
 			return (TRUE);
 	}
 	return (FALSE);
@@ -99,7 +98,7 @@ int	check_lit_col_all_cy(int lit_num, t_vec3 col_pos, t_factor *f)
 	i = 0;
 	while (i < f->tab[CYLINDER])
 	{
-		rev_cy = get_rev_cy_matrix(f->cy[i]);
+		rev_cy = get_rev_fi_matrix(f->cy[i].center_pos, f->cy[i].unit_vec);
 		n_col_pos = vec4_to_3(mat4x4_vec4_mul(rev_cy, \
 			vec3_to_4(col_pos, 1.0f)));
 		n_lit_pos = vec4_to_3(mat4x4_vec4_mul(rev_cy, \
