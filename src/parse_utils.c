@@ -6,7 +6,7 @@
 /*   By: chansjeo <chansjeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:11:35 by chansjeo          #+#    #+#             */
-/*   Updated: 2024/06/29 18:27:14 by chansjeo         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:17:45 by chansjeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	check_filename(const char *path)
 	char	*idx;
 
 	idx = ft_strrchr(path, '.');
+	if (!idx)
+		ft_error_msg("[filename].rt file does not exist.\n", 1);
 	if (ft_strncmp(idx, ".rt", 4) != 0)
 		ft_error_msg("[filename].rt file does not exist.\n", 1);
 	return (0);
